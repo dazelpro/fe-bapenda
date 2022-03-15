@@ -298,7 +298,7 @@ const Home = () => {
         <View
             style={{
                 flex: 1,
-                marginBottom: 200
+                marginBottom: 170
             }}
         >
             {/* Search */}
