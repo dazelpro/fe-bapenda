@@ -61,15 +61,15 @@ const articletiga = {
     image: require("../assets/images/notfound.png")
 }
 
-const wrapSandwich = {
+const articleempat = {
     id: 4,
-    name: "Wrap Sandwich",
-    description: "Grilled vegetables sandwich",
+    name: "Ujung Tombak Realisasi PAD",
+    description: "Petugas Penagih Ujung Tombak Realisasi PAD",
     categories: [1, 2],
-    price: 10.99,
+    date: "2 June 2021",
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/wrap_sandwich.png")
+    image: require("../assets/images/notfound.png")
 }
 
 // const imageSlider = [
@@ -96,47 +96,39 @@ const wrapSandwich = {
 const menu = [
     {
         id: 1,
-        name: "Featured",
+        name: "Berita & Informasi",
         list: [
             articlesatu, articledua, articletiga,
         ]
     },
     {
         id: 2,
-        name: "Nearby you",
+        name: "Teknologi Informasi",
         list: [
-            articlesatu, articletiga, wrapSandwich,
+            articledua, articletiga, articleempat,
         ]
     },
     {
         id: 3,
-        name: "Popular",
+        name: "Pajak Daerah",
         list: [
-            articlesatu, articledua, wrapSandwich,
+            articletiga, articleempat, articledua,
         ]
     },
     {
         id: 4,
-        name: "Newest",
+        name: "Pelayanan",
         list: [
-            articlesatu, articledua, articletiga,
+            articleempat, articlesatu, articletiga,
         ]
     },
     {
         id: 5,
-        name: "Trending",
+        name: "UPTB",
         list: [
-            articlesatu, articletiga, wrapSandwich,
+            articletiga, articlesatu, articleempat,
         ]
     },
-    {
-        id: 6,
-        name: "Recommended",
-        list: [
-            articlesatu, articledua, wrapSandwich,
-        ]
-    },
-
 ]
 
 
