@@ -24,6 +24,15 @@ const HorizontalArticle = ({containerStyle, imageStyle, item, onPress}) => {
                 ...containerStyle
             }}
         >
+            {/* Image */}
+            <Image
+                source={item.image}
+                style={imageStyle}
+            >
+
+            </Image>
+
+            {/* Info */}
 
         </TouchableOpacity>
     )

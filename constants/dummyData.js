@@ -36,7 +36,7 @@ const hamburger = {
     price: 15.99,
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/hamburger.png")
+    image: require("../assets/images/notfound.png")
 }
 
 const hotTacos = {
@@ -47,7 +47,7 @@ const hotTacos = {
     price: 10.99,
     calories: 78,
     isFavourite: false,
-    image: require("../assets/dummyData/hot_tacos.png")
+    image: require("../assets/images/notfound.png")
 }
 
 const vegBiryani = {
@@ -58,7 +58,7 @@ const vegBiryani = {
     price: 10.99,
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/veg_biryani.png")
+    image: require("../assets/images/notfound.png")
 }
 
 const wrapSandwich = {

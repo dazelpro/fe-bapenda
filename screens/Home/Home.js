@@ -141,10 +141,10 @@ const Home = () => {
                                 marginHorizontal: SIZES.padding,
                                 marginBottom: SIZES.radius
                             }}
-                            imageStyle={{ 
-                                marginTop: 20,
-                                height: 110,
-                                width: 110
+                            imageStyle={{
+                                marginLeft: 10, 
+                                height: 80,
+                                width: 80
                             }}
                             item={item}
                             onPress={() => console.log("HorizontalArticle")}
