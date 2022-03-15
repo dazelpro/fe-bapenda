@@ -267,9 +267,10 @@ const Home = () => {
                         <Image
                             source={item.icon}
                             style={{ 
-                                marginTop: 5,
-                                height: 50,
-                                width: 50
+                                alignSelf: 'center',
+                                marginRight: 5,
+                                height: 40,
+                                width: 40
                             }}
                         >
 
@@ -297,8 +298,8 @@ const Home = () => {
     return (
         <View
             style={{
-                flex: 1,
-                marginBottom: 170
+                flex: 1
+                // marginBottom: 170
             }}
         >
             {/* Search */}
@@ -347,6 +348,15 @@ const Home = () => {
                         </HorizontalArticle>
                     )
                 }}
+                ListFooterComponent={
+                    <View
+                        style={{ 
+                            height: 200
+                        }}
+                    >
+
+                    </View>
+                }
             >
 
             </FlatList>
