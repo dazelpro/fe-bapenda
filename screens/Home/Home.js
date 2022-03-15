@@ -216,7 +216,7 @@ const Home = () => {
                     renderItem={({item, index}) => (
                         <HorizontalArticle
                             containerStyle={{ 
-                                height: 180,
+                                height: 150,
                                 width: SIZES.width * 0.85,
                                 marginLeft: index == 0 ? SIZES.padding : 18,
                                 marginRight: index == recommends.length - 1 ? SIZES.padding : 0,
@@ -224,9 +224,10 @@ const Home = () => {
                                 alignItems: 'center'
                             }}
                             imageStyle={{
+                                borderRadius: SIZES.radius,
                                 marginHorizontal: 10,
-                                height: 100,
-                                width: 100
+                                height: 110,
+                                width: 130
                             }}
                             item={item}
                             onPress={() => console.log("HorizontalArticle")}
@@ -272,12 +273,14 @@ const Home = () => {
                                 height: 130,
                                 alignItems: 'center',
                                 marginHorizontal: SIZES.padding,
-                                marginBottom: SIZES.radius
+                                marginBottom: SIZES.radius,
+                                paddingHorizontal: SIZES.base
                             }}
                             imageStyle={{
+                                borderRadius: SIZES.radius,
                                 marginHorizontal: 10, 
-                                height: 80,
-                                width: 80
+                                height: 100,
+                                width: 120
                             }}
                             item={item}
                             onPress={() => console.log("HorizontalArticle")}
