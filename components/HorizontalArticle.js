@@ -33,6 +33,27 @@ const HorizontalArticle = ({containerStyle, imageStyle, item, onPress}) => {
             </Image>
 
             {/* Info */}
+            <View
+                style={{ 
+                    flex: 1
+                }}
+            >
+                {/* Title */}
+                <Text
+                    style={{ 
+                        ...FONTS.h3,
+                        fontSize: 17
+                    }}
+                >
+                    {item.name}
+                </Text>
+                
+                {/* Description */}
+                <Text>
+                    {item.description}
+                </Text>
+
+            </View>
 
         </TouchableOpacity>
     )

@@ -28,10 +28,10 @@ const categories = [
     }
 ]
 
-const hamburger = {
+const articlesatu = {
     id: 1,
-    name: "Hamburger",
-    description: "Chicken patty hamburger",
+    name: "Launching e-SPPT",
+    description: "Permudah Wajib Pajak, Pemko Padang Launching e-SPPT PBB-P2",
     categories: [1, 2],
     price: 15.99,
     calories: 78,
@@ -39,10 +39,10 @@ const hamburger = {
     image: require("../assets/images/notfound.png")
 }
 
-const hotTacos = {
+const articledua = {
     id: 2,
-    name: "Hot Tacos",
-    description: "Mexican tortilla & tacos",
+    name: "Target PAD Rp. 880 Miliar",
+    description: "Target PAD Rp. 880 Miliar, Pemko Padang Tingkatkan Kualitas 280 Petugas Pajak",
     categories: [1, 3],
     price: 10.99,
     calories: 78,
@@ -50,10 +50,10 @@ const hotTacos = {
     image: require("../assets/images/notfound.png")
 }
 
-const vegBiryani = {
+const articletiga = {
     id: 3,
-    name: "Veg Biryani",
-    description: "Indian Vegetable Biryani",
+    name: "Belasan Reklame Dibongkar",
+    description: "Tak Bayar Pajak, Belasan Papan Reklame Dibongkar",
     categories: [1, 2, 3],
     price: 10.99,
     calories: 78,
@@ -98,42 +98,42 @@ const menu = [
         id: 1,
         name: "Featured",
         list: [
-            hamburger, hotTacos, vegBiryani,
+            articlesatu, articledua, articletiga,
         ]
     },
     {
         id: 2,
         name: "Nearby you",
         list: [
-            hamburger, vegBiryani, wrapSandwich,
+            articlesatu, articletiga, wrapSandwich,
         ]
     },
     {
         id: 3,
         name: "Popular",
         list: [
-            hamburger, hotTacos, wrapSandwich,
+            articlesatu, articledua, wrapSandwich,
         ]
     },
     {
         id: 4,
         name: "Newest",
         list: [
-            hamburger, hotTacos, vegBiryani,
+            articlesatu, articledua, articletiga,
         ]
     },
     {
         id: 5,
         name: "Trending",
         list: [
-            hamburger, vegBiryani, wrapSandwich,
+            articlesatu, articletiga, wrapSandwich,
         ]
     },
     {
         id: 6,
         name: "Recommended",
         list: [
-            hamburger, hotTacos, wrapSandwich,
+            articlesatu, articledua, wrapSandwich,
         ]
     },
 
