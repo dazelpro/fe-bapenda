@@ -142,7 +142,7 @@ const Home = () => {
                                 marginBottom: SIZES.radius
                             }}
                             imageStyle={{
-                                marginLeft: 10, 
+                                marginHorizontal: 10, 
                                 height: 80,
                                 width: 80
                             }}

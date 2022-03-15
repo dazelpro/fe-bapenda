@@ -49,10 +49,24 @@ const HorizontalArticle = ({containerStyle, imageStyle, item, onPress}) => {
                 </Text>
                 
                 {/* Description */}
-                <Text>
+                <Text
+                    style={{ 
+                        color: COLORS.darkGray2,
+                        ...FONTS.body4
+                    }}
+                >
                     {item.description}
                 </Text>
 
+                {/* Date */}
+                <Text
+                    style={{ 
+                        marginTop: SIZES.base,
+                        ...FONTS.body5
+                    }}
+                >
+                    {item.date}
+                </Text>
             </View>
 
         </TouchableOpacity>

@@ -33,7 +33,7 @@ const articlesatu = {
     name: "Launching e-SPPT",
     description: "Permudah Wajib Pajak, Pemko Padang Launching e-SPPT PBB-P2",
     categories: [1, 2],
-    price: 15.99,
+    date: "2 July 2021",
     calories: 78,
     isFavourite: true,
     image: require("../assets/images/notfound.png")
@@ -44,7 +44,7 @@ const articledua = {
     name: "Target PAD Rp. 880 Miliar",
     description: "Target PAD Rp. 880 Miliar, Pemko Padang Tingkatkan Kualitas 280 Petugas Pajak",
     categories: [1, 3],
-    price: 10.99,
+    date: "24 February 2021",
     calories: 78,
     isFavourite: false,
     image: require("../assets/images/notfound.png")
@@ -55,7 +55,7 @@ const articletiga = {
     name: "Belasan Reklame Dibongkar",
     description: "Tak Bayar Pajak, Belasan Papan Reklame Dibongkar",
     categories: [1, 2, 3],
-    price: 10.99,
+    date: "17 February 2021",
     calories: 78,
     isFavourite: true,
     image: require("../assets/images/notfound.png")
