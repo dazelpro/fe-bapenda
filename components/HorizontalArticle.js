@@ -26,7 +26,7 @@ const HorizontalArticle = ({containerStyle, imageStyle, item, onPress}) => {
         >
             {/* Image */}
             <Image
-                source={item.image}
+                source={{ uri: `${item.image}`}}
                 style={imageStyle}
             >
 
