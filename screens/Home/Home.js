@@ -7,6 +7,8 @@ import {
     TextInput,
     FlatList
 } from 'react-native';
+
+import { HorizontalArticle } from '../../components';
 import {
     COLORS,
     FONTS,
@@ -17,6 +19,26 @@ import {
 } from '../../constants';
 
 const Home = () => {
+
+    const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
+    const [selectedMenuType, setSelectedMenuType] = React.useState(1)
+    const [menuList, setMenuList] = React.useState([])
+
+    React.useEffect(() => {
+        handleChangeCategory(selectedCategoryId, selectedMenuType)
+    }, [])
+
+    // Handle
+
+    function handleChangeCategory(categoryId, menuTypeId) {
+        // Find the menu based on the menuTypeId
+        let selectedMenu = dummyData.menu.find(a => a.id == menuTypeId)
+
+        // Set the menu based on the categoryId
+        setMenuList(selectedMenu?.list.filter(a => a.categories.includes(categoryId)))
+    }
+
+    // Render
 
     function renderSearch(){
         return(
@@ -74,24 +96,24 @@ const Home = () => {
         )
     }
 
-    function renderSlider(){
-        return(
-            <View
-                // style={{ 
-                //     flexDirection: 'row',
-                //     height: 40,
-                //     alignItems: 'center',
-                //     marginHorizontal: SIZES.padding,
-                //     marginVertical: SIZES.base,
-                //     paddingHorizontal: SIZES.radius,
-                //     borderRadius: SIZES.base,
-                //     backgroundColor: COLORS.lightGray2
-                // }}
-            >
+    // function renderSlider(){
+    //     return(
+    //         <View
+    //             // style={{ 
+    //             //     flexDirection: 'row',
+    //             //     height: 40,
+    //             //     alignItems: 'center',
+    //             //     marginHorizontal: SIZES.padding,
+    //             //     marginVertical: SIZES.base,
+    //             //     paddingHorizontal: SIZES.radius,
+    //             //     borderRadius: SIZES.base,
+    //             //     backgroundColor: COLORS.lightGray2
+    //             // }}
+    //         >
                 
-            </View>
-        )
-    }
+    //         </View>
+    //     )
+    // }
 
     return (
         <View
@@ -103,9 +125,37 @@ const Home = () => {
             {renderSearch()}
 
             {/* SLider */}
-            {renderSlider()}
+            {/* {renderSlider()} */}
 
             {/* List */}
+            <FlatList
+                data={menuList}
+                keyExtractor={(item) => `${item.id}`}
+                showsVerticalScrollIndicator={false}
+                renderItem={({item, index}) => {
+                    return(
+                        <HorizontalArticle
+                            containerStyle={{ 
+                                height: 130,
+                                alignItems: 'center',
+                                marginHorizontal: SIZES.padding,
+                                marginBottom: SIZES.radius
+                            }}
+                            imageStyle={{ 
+                                marginTop: 20,
+                                height: 110,
+                                width: 110
+                            }}
+                            item={item}
+                            onPress={() => console.log("HorizontalArticle")}
+                        >
+
+                        </HorizontalArticle>
+                    )
+                }}
+            >
+
+            </FlatList>
 
         </View>
     )
