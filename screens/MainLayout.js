@@ -20,9 +20,9 @@ import { setSelectedTab } from '../stores/tab/tabActions';
 import {
     Home,
     Article,
+    Event,
     Profile,
-    Favourite,
-    Notification
+    Favourite
 } from '../screens';
 
 import { Header } from '../components';
@@ -106,8 +106,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
     const articleTabColor = useSharedValue(COLORS.white)
     const favouriteTabFlex = useSharedValue(1)
     const favouriteTabColor = useSharedValue(COLORS.white)
-    const notificationTabFlex = useSharedValue(1)
-    const notificationTabColor = useSharedValue(COLORS.white)
+    const eventTabFlex = useSharedValue(1)
+    const eventTabColor = useSharedValue(COLORS.white)
     const profileTabFlex = useSharedValue(1)
     const profileTabColor = useSharedValue(COLORS.white)
 
@@ -149,15 +149,15 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
         }
     })
 
-    const notificationFlexStyle = useAnimatedStyle(() => {
+    const eventFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: notificationTabFlex.value
+            flex: eventTabFlex.value
         }
     })
 
-    const notificationColorStyle = useAnimatedStyle(() => {
+    const eventColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: notificationTabColor.value
+            backgroundColor: eventTabColor.value
         }
     })
 
@@ -214,7 +214,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
 
         if(selectedTab == constants.screens.favourite){
             flatListRef?.current?.scrollToIndex({
-                index: 2,
+                index: 3,
                 animated: false
             })
 
@@ -229,19 +229,19 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
             })
         }
 
-        if(selectedTab == constants.screens.notification){
+        if(selectedTab == constants.screens.event){
             flatListRef?.current?.scrollToIndex({
-                index: 3,
+                index: 2,
                 animated: false
             })
 
-            notificationTabFlex.value = withTiming(4, { duration: 500 })
-            notificationTabColor.value = withTiming(COLORS.primary, {
+            eventTabFlex.value = withTiming(4, { duration: 500 })
+            eventTabColor.value = withTiming(COLORS.primary, {
                 duration: 500
             })
         } else {
-            notificationTabFlex.value = withTiming(1, { duration: 500 })
-            notificationTabColor.value = withTiming(COLORS.white, {
+            eventTabFlex.value = withTiming(1, { duration: 500 })
+            eventTabColor.value = withTiming(COLORS.white, {
                 duration: 500
             })
         }
@@ -352,8 +352,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             >
                                 {item.label == constants.screens.home && <Home />}
                                 {item.label == constants.screens.article && <Article />}
+                                {item.label == constants.screens.event && <Event />}
                                 {item.label == constants.screens.favourite && <Favourite />}
-                                {item.label == constants.screens.notification && <Notification />}
                                 {item.label == constants.screens.profile && <Profile />}
                             </View>
                         )
@@ -427,23 +427,23 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     </TabButton>
 
                     <TabButton
+                        label={constants.screens.event}
+                        icon={icons.event}
+                        isFocused={selectedTab == constants.screens.event}
+                        outerContainerStyle={eventFlexStyle}
+                        innerContainerStyle={eventColorStyle}
+                        onPress={() => setSelectedTab(constants.screens.event)}
+                    >
+
+                    </TabButton>
+
+                    <TabButton
                         label={constants.screens.favourite}
                         icon={icons.favourite}
                         isFocused={selectedTab == constants.screens.favourite}
                         outerContainerStyle={favouriteFlexStyle}
                         innerContainerStyle={favouriteColorStyle}
                         onPress={() => setSelectedTab(constants.screens.favourite)}
-                    >
-
-                    </TabButton>
-
-                    <TabButton
-                        label={constants.screens.notification}
-                        icon={icons.notification}
-                        isFocused={selectedTab == constants.screens.notification}
-                        outerContainerStyle={notificationFlexStyle}
-                        innerContainerStyle={notificationColorStyle}
-                        onPress={() => setSelectedTab(constants.screens.notification)}
                     >
 
                     </TabButton>

@@ -6,7 +6,14 @@ import {
 
 const Event = () => {
     return (
-        <View>
+        <View
+            style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
+        >
+            <Text>Event Page</Text>
         </View>
     )
 }
