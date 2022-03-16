@@ -2,7 +2,7 @@ const screens = {
     main_layout: "MainLayout",
     home: "Home",
     article: "Article",
-    cart: "Cart",
+    event: "Event",
     favourite: "My Favourite",
     notification: "Notification",
     article: "Article",
@@ -25,11 +25,11 @@ const bottom_tabs = [
     },
     {
         id: 2,
-        label: screens.favourite,
+        label: screens.event,
     },
     {
         id: 3,
-        label: screens.notification,
+        label: screens.favourite,
     },
     {
         id: 4,

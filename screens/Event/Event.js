@@ -4,11 +4,11 @@ import {
     Text
 } from 'react-native';
 
-const CartTab = () => {
+const Event = () => {
     return (
         <View>
         </View>
     )
 }
 
-export default CartTab
+export default Event;

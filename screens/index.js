@@ -10,7 +10,7 @@ import FilterModal from "./Home/FilterModal";
 import Article from "./Article/Article";
 
 // Cart
-import CartTab from "./Cart/CartTab"
+import Event from "./Event/Event";
 
 // Favourite
 import Favourite from "./Favourite/Favourite";
@@ -26,7 +26,7 @@ export {
     Home,
     FilterModal,
     Article,
-    CartTab,
+    Event,
     Favourite,
     Notification,
     Profile
