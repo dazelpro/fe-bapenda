@@ -6,8 +6,8 @@ import Home from "./Home/Home";
 // Filter Modal
 import FilterModal from "./Home/FilterModal";
 
-// Search
-import Search from "./Search/Search";
+// Article
+import Article from "./Article/Article";
 
 // Cart
 import CartTab from "./Cart/CartTab"
@@ -25,7 +25,7 @@ export {
     MainLayout,
     Home,
     FilterModal,
-    Search,
+    Article,
     CartTab,
     Favourite,
     Notification,

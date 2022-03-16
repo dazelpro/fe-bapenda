@@ -4,7 +4,7 @@ import {
     Text
 } from 'react-native';
 
-const Search = () => {
+const Article = () => {
     return (
         <View
             style={{
@@ -13,9 +13,9 @@ const Search = () => {
                 justifyContent: 'center'
             }}
         >
-            <Text>Search Page</Text>
+            <Text>Article Page</Text>
         </View>
     )
 }
 
-export default Search
+export default Article;

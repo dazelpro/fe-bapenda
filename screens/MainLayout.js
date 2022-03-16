@@ -19,7 +19,7 @@ import { setSelectedTab } from '../stores/tab/tabActions';
 
 import {
     Home,
-    Search,
+    Article,
     Profile,
     Favourite,
     Notification
@@ -102,8 +102,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
 
     const homeTabFlex = useSharedValue(1)
     const homeTabColor = useSharedValue(COLORS.white)
-    const searchTabFlex = useSharedValue(1)
-    const searchTabColor = useSharedValue(COLORS.white)
+    const articleTabFlex = useSharedValue(1)
+    const articleTabColor = useSharedValue(COLORS.white)
     const favouriteTabFlex = useSharedValue(1)
     const favouriteTabColor = useSharedValue(COLORS.white)
     const notificationTabFlex = useSharedValue(1)
@@ -125,15 +125,15 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
         }
     })
 
-    const searchFlexStyle = useAnimatedStyle(() => {
+    const articleFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: searchTabFlex.value
+            flex: articleTabFlex.value
         }
     })
 
-    const searchColorStyle = useAnimatedStyle(() => {
+    const articleColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: searchTabColor.value
+            backgroundColor: articleTabColor.value
         }
     })
 
@@ -195,19 +195,19 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
             })
         }
 
-        if(selectedTab == constants.screens.search){
+        if(selectedTab == constants.screens.article){
             flatListRef?.current?.scrollToIndex({
                 index: 1,
                 animated: false
             })
 
-            searchTabFlex.value = withTiming(4, { duration: 500 })
-            searchTabColor.value = withTiming(COLORS.primary, {
+            articleTabFlex.value = withTiming(4, { duration: 500 })
+            articleTabColor.value = withTiming(COLORS.primary, {
                 duration: 500
             })
         } else {
-            searchTabFlex.value = withTiming(1, { duration: 500 })
-            searchTabColor.value = withTiming(COLORS.white, {
+            articleTabFlex.value = withTiming(1, { duration: 500 })
+            articleTabColor.value = withTiming(COLORS.white, {
                 duration: 500
             })
         }
@@ -351,7 +351,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                                 }}
                             >
                                 {item.label == constants.screens.home && <Home />}
-                                {item.label == constants.screens.search && <Search />}
+                                {item.label == constants.screens.article && <Article />}
                                 {item.label == constants.screens.favourite && <Favourite />}
                                 {item.label == constants.screens.notification && <Notification />}
                                 {item.label == constants.screens.profile && <Profile />}
@@ -416,12 +416,12 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     </TabButton>
 
                     <TabButton
-                        label={constants.screens.search}
-                        icon={icons.search}
-                        isFocused={selectedTab == constants.screens.search}
-                        outerContainerStyle={searchFlexStyle}
-                        innerContainerStyle={searchColorStyle}
-                        onPress={() => setSelectedTab(constants.screens.search)}
+                        label={constants.screens.article}
+                        icon={icons.article}
+                        isFocused={selectedTab == constants.screens.article}
+                        outerContainerStyle={articleFlexStyle}
+                        innerContainerStyle={articleColorStyle}
+                        onPress={() => setSelectedTab(constants.screens.article)}
                     >
 
                     </TabButton>
