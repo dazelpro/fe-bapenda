@@ -24,10 +24,10 @@ import Profile from "./Profile/Profile";
 export {
     MainLayout,
     Home,
+    FilterModal,
     Search,
     CartTab,
     Favourite,
     Notification,
-    Profile,
-    FilterModal
+    Profile
 }

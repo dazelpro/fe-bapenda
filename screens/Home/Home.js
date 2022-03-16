@@ -313,8 +313,7 @@ const Home = () => {
                 <FilterModal
                     isVisible={showFilterModal}
                     onCLose={() => setShowFilterModal(false)}
-                >
-                </FilterModal>
+                />
             }
 
             {/* SLider */}

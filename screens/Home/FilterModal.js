@@ -46,10 +46,6 @@ const FilterModal = ({isVisible, onClose}) => {
         outputRange: [SIZES.height, SIZES.height - 680]
     })
 
-    function onClose() {
-        setShowFilterModal(false)
-    }
-
     return (
         <Modal
             animationType="fade"
