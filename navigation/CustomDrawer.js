@@ -267,7 +267,7 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
         outputRange: [0, 26]
     })
 
-    const animatedStyle = {borderRadius, transform: [{ scale }] }
+    const animatedStyle = {borderRadius, transform: [{ scale }], overflow: 'hidden' }
 
     return (
         <View
