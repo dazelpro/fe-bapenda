@@ -184,6 +184,11 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}) => {
                     <CustomDrawerItem
                         label={constants.screens.event}
                         icon={icons.event}
+                        isFocused={selectedTab == constants.screens.event}
+                        onPress={() => {
+                            setSelectedTab(constants.screens.event)
+                            navigation.navigate("MainLayout")
+                        }}
                     >
                     </CustomDrawerItem>
 
@@ -214,11 +219,6 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}) => {
                     <CustomDrawerItem
                         label={constants.screens.notification}
                         icon={icons.notification}
-                        isFocused={selectedTab == constants.screens.notification}
-                        onPress={() => {
-                            setSelectedTab(constants.screens.notification)
-                            navigation.navigate("MainLayout")
-                        }}
                     >
                     </CustomDrawerItem>
 
