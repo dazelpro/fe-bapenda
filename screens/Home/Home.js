@@ -125,7 +125,7 @@ const Home = () => {
 
                 {/* Filter Button */}
                 <TouchableOpacity
-                    onPress={() => setShowFilterModal(true)}
+                    // onPress={() => setShowFilterModal(true)}
                 >
                     <Image
                         source={icons.filter}
