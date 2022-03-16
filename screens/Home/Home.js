@@ -8,6 +8,7 @@ import {
     FlatList
 } from 'react-native';
 
+import { FilterModal } from '../';
 import { HorizontalArticle } from '../../components';
 import {
     COLORS,
@@ -62,6 +63,8 @@ const Home = () => {
     const [selectedMenuType, setSelectedMenuType] = React.useState(1)
     const [recommends, setRecommends] = React.useState([])
     const [menuList, setMenuList] = React.useState([])
+
+    const [showFilterModal, setShowFilterModal] = React.useState(false)
 
     React.useEffect(() => {
         handleChangeCategory(selectedCategoryId, selectedMenuType)
@@ -122,7 +125,7 @@ const Home = () => {
 
                 {/* Filter Button */}
                 <TouchableOpacity
-                    // onPress={}
+                    onPress={() => setShowFilterModal(true)}
                 >
                     <Image
                         source={icons.filter}
@@ -304,6 +307,15 @@ const Home = () => {
         >
             {/* Search */}
             {renderSearch()}
+
+            {/* Filter modal */}
+            {showFilterModal &&
+                <FilterModal
+                    isVisible={showFilterModal}
+                    onCLose={() => setShowFilterModal(false)}
+                >
+                </FilterModal>
+            }
 
             {/* SLider */}
             {/* {renderSlider()} */}

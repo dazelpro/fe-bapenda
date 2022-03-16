@@ -1,7 +1,10 @@
-import MainLayout from "./MainLayout"
+import MainLayout from "./MainLayout";
 
 // Home
-import Home from "./Home/Home"
+import Home from "./Home/Home";
+
+// Filter Modal
+import FilterModal from "./Home/FilterModal";
 
 // Search
 import Search from "./Search/Search";
@@ -25,5 +28,6 @@ export {
     CartTab,
     Favourite,
     Notification,
-    Profile
+    Profile,
+    FilterModal
 }
