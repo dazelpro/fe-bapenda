@@ -21,6 +21,9 @@ import Notification from "./Notification/Notification";
 // Notification
 import Profile from "./Profile/Profile";
 
+// Loading
+import Loading from "./Loading/Loading";
+
 export {
     MainLayout,
     Home,
@@ -29,5 +32,6 @@ export {
     Event,
     Favourite,
     Notification,
-    Profile
+    Profile,
+    Loading
 }

@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import { FilterModal } from '../';
+import Loading from '../Loading/Loading';
 import { HorizontalArticle } from '../../components';
 import {
     COLORS,
@@ -299,80 +300,83 @@ const Home = () => {
     }
     
     return (
-        <View
-            style={{
-                flex: 1
-                // marginBottom: 170
-            }}
-        >
-            {/* Search */}
-            {renderSearch()}
+        <>
+            <View
+                style={{
+                    flex: 1
+                    // marginBottom: 170
+                }}
+            >
+                {/* Search */}
+                {renderSearch()}
 
-            {/* Filter modal */}
-            {showFilterModal &&
-                <FilterModal
-                    isVisible={showFilterModal}
-                    onCLose={() => setShowFilterModal(false)}
-                />
-            }
-
-            {/* SLider */}
-            {/* {renderSlider()} */}
-
-            {/* List */}
-            <FlatList
-                data={menuList}
-                keyExtractor={(item) => `${item.id}`}
-                showsVerticalScrollIndicator={false}
-                ListHeaderComponent={
-                    <View>
-                        {/* Category */}
-                        {renderCategories()}
-
-                        {/* Recommended */}
-                        {renderRecommendedSection()}
-
-                        {/* Menu type */}
-                        {renderMenuTypes()}
-                    </View>
+                {/* Filter modal */}
+                {showFilterModal &&
+                    <FilterModal
+                        isVisible={showFilterModal}
+                        onCLose={() => setShowFilterModal(false)}
+                    />
                 }
-                renderItem={({item, index}) => {
-                    return(
-                        <HorizontalArticle
-                            containerStyle={{ 
-                                height: 130,
-                                alignItems: 'center',
-                                marginHorizontal: SIZES.padding,
-                                marginBottom: SIZES.radius,
-                                paddingHorizontal: SIZES.base
+
+                {/* SLider */}
+                {/* {renderSlider()} */}
+
+                {/* List */}
+                <FlatList
+                    data={menuList}
+                    keyExtractor={(item) => `${item.id}`}
+                    showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={
+                        <View>
+                            {/* Category */}
+                            {renderCategories()}
+
+                            {/* Recommended */}
+                            {renderRecommendedSection()}
+
+                            {/* Menu type */}
+                            {renderMenuTypes()}
+                        </View>
+                    }
+                    renderItem={({item, index}) => {
+                        return(
+                            <HorizontalArticle
+                                containerStyle={{ 
+                                    height: 130,
+                                    alignItems: 'center',
+                                    marginHorizontal: SIZES.padding,
+                                    marginBottom: SIZES.radius,
+                                    paddingHorizontal: SIZES.base
+                                }}
+                                imageStyle={{
+                                    borderRadius: SIZES.radius,
+                                    marginHorizontal: 10, 
+                                    height: 100,
+                                    width: 120
+                                }}
+                                item={item}
+                                onPress={() => console.log("HorizontalArticle")}
+                            >
+
+                            </HorizontalArticle>
+                        )
+                    }}
+                    ListFooterComponent={
+                        <View
+                            style={{ 
+                                height: 200
                             }}
-                            imageStyle={{
-                                borderRadius: SIZES.radius,
-                                marginHorizontal: 10, 
-                                height: 100,
-                                width: 120
-                            }}
-                            item={item}
-                            onPress={() => console.log("HorizontalArticle")}
                         >
 
-                        </HorizontalArticle>
-                    )
-                }}
-                ListFooterComponent={
-                    <View
-                        style={{ 
-                            height: 200
-                        }}
-                    >
+                        </View>
+                    }
+                >
 
-                    </View>
-                }
-            >
+                </FlatList>
 
-            </FlatList>
-
-        </View>
+            </View>    
+            {/* <Loading/> */}
+        </>
     )
 }
 
