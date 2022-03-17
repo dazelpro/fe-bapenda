@@ -24,6 +24,7 @@ const article = require("../assets/icons/article.png")
 const event = require("../assets/icons/event.png")
 const reklame = require("../assets/icons/reklame.png")
 const call = require("../assets/icons/call.png")
+const back = require("../assets/icons/back.png")
 
 export default {
     coupon,
@@ -51,5 +52,6 @@ export default {
     article,
     event,
     reklame,
-    call
+    call,
+    back
 }
