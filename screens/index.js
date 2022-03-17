@@ -1,5 +1,8 @@
 import MainLayout from "./MainLayout";
 
+// Splash
+import Splash from "./Splash/Splash";
+
 // Home
 import Home from "./Home/Home";
 
@@ -29,6 +32,7 @@ import Loading from "./Loading/Loading";
 
 export {
     MainLayout,
+    Splash,
     Home,
     FilterModal,
     Article,

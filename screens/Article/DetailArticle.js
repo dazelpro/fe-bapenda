@@ -19,7 +19,7 @@ import {
     IconButton
 } from '../../components';
 
-const DetailArticle = () => {
+const DetailArticle = ({ navigation: { navigate } }) => {
 
     function renderHeader() {
         return (
@@ -47,7 +47,7 @@ const DetailArticle = () => {
                             height: 20,
                             tintColor: COLORS.gray2
                         }}
-                        onPress={() => console.log("Back")}
+                        onPress={() => navigate('Home')}
                     >
 
                     </IconButton>

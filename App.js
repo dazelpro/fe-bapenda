@@ -8,8 +8,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import rootReducer from "./stores/rootReducer";
-import Splash from "./screens/Splash/Splash";
-import { DetailArticle } from "./screens";
+import { Splash, DetailArticle, Home } from "./screens";
 
 const Stack = createStackNavigator();
 
@@ -26,7 +25,7 @@ const App = () => {
                     screenOptions={{
                         headerShown: false
                     }}
-                    initialRouteName={'DetailArticle'}
+                    initialRouteName={'Splash'}
                 >
                     <Stack.Screen
                         name="Home"
@@ -35,6 +34,10 @@ const App = () => {
                     <Stack.Screen
                         name="Splash"
                         component={Splash}
+                    />
+                    <Stack.Screen
+                        name="HomePage"
+                        component={Home}
                     />
                     <Stack.Screen
                         name="DetailArticle"
