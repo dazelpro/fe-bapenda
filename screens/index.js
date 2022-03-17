@@ -9,6 +9,9 @@ import FilterModal from "./Home/FilterModal";
 // Article
 import Article from "./Article/Article";
 
+// Detail Article
+import DetailArticle from "./Article/DetailArticle";
+
 // Cart
 import Event from "./Event/Event";
 
@@ -29,6 +32,7 @@ export {
     Home,
     FilterModal,
     Article,
+    DetailArticle,
     Event,
     Favourite,
     Notification,

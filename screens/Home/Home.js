@@ -58,7 +58,7 @@ const Section = ({title, onPress, children}) => {
     )
 }
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
     const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
     const [selectedMenuType, setSelectedMenuType] = React.useState(1)
@@ -355,7 +355,8 @@ const Home = () => {
                                     width: 120
                                 }}
                                 item={item}
-                                onPress={() => console.log("HorizontalArticle")}
+                                // onPress={() => navigation.replace("DetailArticle")}
+                                onPress={() => console.log('Tes')}
                             >
 
                             </HorizontalArticle>

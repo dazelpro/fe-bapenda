@@ -23,6 +23,7 @@ const HorizontalArticle = ({containerStyle, imageStyle, item, onPress}) => {
                 backgroundColor: COLORS.lightGray2,
                 ...containerStyle
             }}
+            onPress={onPress}
         >
             {/* Image */}
             <Image

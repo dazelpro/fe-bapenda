@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import rootReducer from "./stores/rootReducer";
 import Splash from "./screens/Splash/Splash";
+import { DetailArticle } from "./screens";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,10 @@ const App = () => {
                     <Stack.Screen
                         name="Splash"
                         component={Splash}
+                    />
+                    <Stack.Screen
+                        name="DetailArticle"
+                        component={DetailArticle}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
