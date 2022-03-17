@@ -25,7 +25,7 @@ const App = () => {
                     screenOptions={{
                         headerShown: false
                     }}
-                    initialRouteName={'Splash'}
+                    initialRouteName={'DetailArticle'}
                 >
                     <Stack.Screen
                         name="Home"
