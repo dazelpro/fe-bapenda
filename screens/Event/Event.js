@@ -1,21 +1,41 @@
-import React from 'react';
+import React from "react";
+import { View, Text, Image } from "react-native";
 import {
-    View,
-    Text
-} from 'react-native';
+    COLORS,
+    FONTS,
+    SIZES,
+    constants,
+    icons,
+    dummyData,
+} from "../../constants";
 
 const Event = () => {
     return (
         <View
             style={{
                 flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center'
+                alignItems: "center",
             }}
         >
-            <Text>Event Page</Text>
+            <Image
+                style={{
+                    width: 120,
+                    height: 120,
+                    marginTop: 150,
+                }}
+                source={icons.notfound}
+            ></Image>
+
+            <Text
+                style={{
+                    color: COLORS.black,
+                    ...FONTS.body4,
+                }}
+            >
+                Belum ada event nich
+            </Text>
         </View>
-    )
-}
+    );
+};
 
 export default Event;

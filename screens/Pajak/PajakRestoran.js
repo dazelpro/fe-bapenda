@@ -9,17 +9,17 @@ import {
     images,
     dummyData,
 } from "../../constants";
-import { Header, IconButton } from "../../components";
+import { Header, IconButton, TextButton } from "../../components";
 import { WebView } from "react-native-webview";
 import Loading from "../Loading/Loading";
 
-const DetailArticle = ({ navigation }) => {
+const PajakRestoran = ({ navigation }) => {
     const [visible, setVisible] = useState(false);
 
     function renderHeader() {
         return (
             <Header
-                title="Detail Article"
+                title="Pajak Restoran"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
@@ -70,6 +70,32 @@ const DetailArticle = ({ navigation }) => {
         );
     }
 
+    function renderFooter() {
+        return (
+            <View
+                style={{
+                    height: 80,
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    paddingHorizontal: SIZES.largeTitle,
+                    paddingVertical: SIZES.font,
+                }}
+            >
+                <TextButton
+                    buttonContainerStyle={{
+                        flex: 1,
+                        borderRadius: SIZES.radius,
+                        backgroundColor: COLORS.primary,
+                    }}
+                    label="Cek Pajak Anda"
+                    onPress={() => navigation.navigate("Check")}
+                ></TextButton>
+            </View>
+        );
+    }
+
     return (
         <View
             style={{
@@ -83,7 +109,7 @@ const DetailArticle = ({ navigation }) => {
             {/* Body */}
             <WebView
                 source={{
-                    uri: "https://bapenda.padang.go.id/?p=1935",
+                    uri: "https://bapenda.padang.go.id/?p=33",
                 }}
                 javaScriptEnabled={true}
                 style={{
@@ -94,9 +120,11 @@ const DetailArticle = ({ navigation }) => {
                 onLoad={() => setVisible(false)}
             />
             {visible ? <Loading /> : null}
+
             {/* Footer */}
+            {renderFooter()}
         </View>
     );
 };
 
-export default DetailArticle;
+export default PajakRestoran;

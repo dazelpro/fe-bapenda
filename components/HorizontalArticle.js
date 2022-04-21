@@ -1,59 +1,49 @@
 import React from "react";
-import {
-    TouchableOpacity,
-    View,
-    Text,
-    Image
-} from 'react-native';
+import { TouchableOpacity, View, Text, Image } from "react-native";
 import {
     COLORS,
     FONTS,
     SIZES,
     constants,
     icons,
-    dummyData
-} from '../constants';
+    dummyData,
+} from "../constants";
 
-const HorizontalArticle = ({containerStyle, imageStyle, item, onPress}) => {
+const HorizontalArticle = ({ containerStyle, imageStyle, item, onPress }) => {
     return (
         <TouchableOpacity
-            style={{ 
-                flexDirection: 'row',
+            style={{
+                flexDirection: "row",
                 borderRadius: SIZES.radius,
                 backgroundColor: COLORS.lightGray2,
-                ...containerStyle
+                ...containerStyle,
             }}
             onPress={onPress}
         >
             {/* Image */}
-            <Image
-                source={{ uri: `${item.image}`}}
-                style={imageStyle}
-            >
-
-            </Image>
+            <Image source={{ uri: `${item.image}` }} style={imageStyle}></Image>
 
             {/* Info */}
             <View
-                style={{ 
-                    flex: 1
+                style={{
+                    flex: 1,
                 }}
             >
                 {/* Title */}
                 <Text
-                    style={{ 
+                    style={{
                         ...FONTS.h3,
-                        fontSize: 17
+                        fontSize: 14,
                     }}
                 >
                     {item.name}
                 </Text>
-                
+
                 {/* Description */}
                 <Text
-                    style={{ 
+                    style={{
                         color: COLORS.darkGray2,
-                        ...FONTS.body4
+                        ...FONTS.body4,
                     }}
                 >
                     {item.description}
@@ -61,17 +51,16 @@ const HorizontalArticle = ({containerStyle, imageStyle, item, onPress}) => {
 
                 {/* Date */}
                 <Text
-                    style={{ 
+                    style={{
                         marginTop: SIZES.base,
-                        ...FONTS.body5
+                        ...FONTS.body5,
                     }}
                 >
                     {item.date}
                 </Text>
             </View>
-
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 export default HorizontalArticle;

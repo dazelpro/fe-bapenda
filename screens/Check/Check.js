@@ -13,18 +13,17 @@ import { Header, IconButton } from "../../components";
 import { WebView } from "react-native-webview";
 import Loading from "../Loading/Loading";
 
-const DetailArticle = ({ navigation }) => {
+const Check = ({ navigation }) => {
     const [visible, setVisible] = useState(false);
 
     function renderHeader() {
         return (
             <Header
-                title="Detail Article"
+                title="Cek Pajak"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
-                    marginTop: 20,
-                    marginBottom: 10,
+                    marginTop: 25,
                 }}
                 leftComponent={
                     <IconButton
@@ -81,7 +80,7 @@ const DetailArticle = ({ navigation }) => {
             {renderHeader()}
 
             {/* Body */}
-            <WebView
+            {/* <WebView
                 source={{
                     uri: "https://bapenda.padang.go.id/?p=1935",
                 }}
@@ -93,10 +92,10 @@ const DetailArticle = ({ navigation }) => {
                 onLoadStart={() => setVisible(true)}
                 onLoad={() => setVisible(false)}
             />
-            {visible ? <Loading /> : null}
+            {visible ? <Loading /> : null} */}
             {/* Footer */}
         </View>
     );
 };
 
-export default DetailArticle;
+export default Check;

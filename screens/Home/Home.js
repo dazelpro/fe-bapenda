@@ -1,53 +1,51 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     Text,
     TouchableOpacity,
     Image,
     TextInput,
-    FlatList
-} from 'react-native';
+    FlatList,
+} from "react-native";
 
-import { FilterModal } from '../';
-import Loading from '../Loading/Loading';
-import { HorizontalArticle } from '../../components';
+import { FilterModal } from "../";
+import Loading from "../Loading/Loading";
+import { HorizontalArticle } from "../../components";
 import {
     COLORS,
     FONTS,
     SIZES,
     constants,
     icons,
-    dummyData
-} from '../../constants';
+    dummyData,
+} from "../../constants";
 
-const Section = ({title, onPress, children}) => {
+const Section = ({ title, onPress, children }) => {
     return (
         <View>
             {/* Header */}
             <View
-                style={{ 
-                    flexDirection: 'row',
+                style={{
+                    flexDirection: "row",
                     marginHorizontal: SIZES.padding,
                     marginTop: 30,
-                    marginBottom: 20
+                    marginBottom: 20,
                 }}
             >
                 <Text
-                    style={{ 
+                    style={{
                         flex: 1,
-                        ...FONTS.h3
+                        ...FONTS.h3,
                     }}
                 >
                     {title}
                 </Text>
 
-                <TouchableOpacity
-                    onPress={onPress}
-                >
+                <TouchableOpacity onPress={onPress}>
                     <Text
-                        style={{ 
+                        style={{
                             color: COLORS.primary,
-                            ...FONTS.body3
+                            ...FONTS.body3,
                         }}
                     >
                         Show All
@@ -55,100 +53,99 @@ const Section = ({title, onPress, children}) => {
                 </TouchableOpacity>
             </View>
         </View>
-    )
-}
+    );
+};
 
-const Home = () => {
+const Home = ({ navigation }) => {
+    const [selectedCategoryId, setSelectedCategoryId] = React.useState(1);
+    const [selectedMenuType, setSelectedMenuType] = React.useState(1);
+    const [recommends, setRecommends] = React.useState([]);
+    const [menuList, setMenuList] = React.useState([]);
 
-    const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
-    const [selectedMenuType, setSelectedMenuType] = React.useState(1)
-    const [recommends, setRecommends] = React.useState([])
-    const [menuList, setMenuList] = React.useState([])
-
-    const [showFilterModal, setShowFilterModal] = React.useState(false)
+    const [showFilterModal, setShowFilterModal] = React.useState(false);
 
     React.useEffect(() => {
-        handleChangeCategory(selectedCategoryId, selectedMenuType)
-    }, [])
+        handleChangeCategory(selectedCategoryId, selectedMenuType);
+    }, []);
 
     // Handle
 
     function handleChangeCategory(categoryId, menuTypeId) {
         // Retrieve the recommended menu
-        let selectedRecommend = dummyData.menu.find(a => a.name == "Recommended")
+        let selectedRecommend = dummyData.menu.find(
+            (a) => a.name == "Recommended"
+        );
 
         // Find the menu based on the menuTypeId
-        let selectedMenu = dummyData.menu.find(a => a.id == menuTypeId)
+        let selectedMenu = dummyData.menu.find((a) => a.id == menuTypeId);
 
         // Set the recommended menu based on the categoryId
-        setRecommends(selectedRecommend?.list.filter(a => a.categories.includes(categoryId)))
+        setRecommends(
+            selectedRecommend?.list.filter((a) =>
+                a.categories.includes(categoryId)
+            )
+        );
 
         // Set the menu based on the categoryId
-        setMenuList(selectedMenu?.list.filter(a => a.categories.includes(categoryId)))
+        setMenuList(
+            selectedMenu?.list.filter((a) => a.categories.includes(categoryId))
+        );
     }
 
     // Render
 
-    function renderSearch(){
-        return(
+    function renderSearch() {
+        return (
             <View
-                style={{ 
-                    flexDirection: 'row',
+                style={{
+                    flexDirection: "row",
                     height: 40,
-                    alignItems: 'center',
+                    alignItems: "center",
                     marginHorizontal: SIZES.padding,
                     marginVertical: SIZES.base,
                     paddingHorizontal: SIZES.radius,
                     borderRadius: SIZES.base,
-                    backgroundColor: COLORS.lightGray2
+                    backgroundColor: COLORS.lightGray2,
                 }}
             >
                 {/* Icon */}
                 <Image
                     source={icons.search}
-                    style={{ 
+                    style={{
                         height: 20,
                         width: 20,
-                        tintColor: COLORS.gray
+                        tintColor: COLORS.gray,
                     }}
-                >
-
-                </Image>
+                ></Image>
 
                 {/* Text Input */}
                 <TextInput
-                    style={{ 
+                    style={{
                         flex: 1,
-                        marginLeft: SIZES.radius
+                        marginLeft: SIZES.radius,
                     }}
                     placeholder="Search article..."
                 />
 
                 {/* Filter Button */}
-                <TouchableOpacity
-                    // onPress={() => setShowFilterModal(true)}
-                >
+                <TouchableOpacity onPress={() => setShowFilterModal(true)}>
                     <Image
                         source={icons.filter}
-                        style={{ 
+                        style={{
                             height: 20,
                             width: 20,
-                            tintColor: COLORS.gray
+                            tintColor: COLORS.gray,
                         }}
-                    >
-
-                    </Image>
-
+                    ></Image>
                 </TouchableOpacity>
-
             </View>
-        )
+        );
     }
 
     // function renderSlider(){
     //     return(
     //         <View
-    //             // style={{ 
+    //             // style={{
     //             //     flexDirection: 'row',
     //             //     height: 40,
     //             //     alignItems: 'center',
@@ -159,7 +156,7 @@ const Home = () => {
     //             //     backgroundColor: COLORS.lightGray2
     //             // }}
     //         >
-                
+
     //         </View>
     //     )
     // }
@@ -169,38 +166,41 @@ const Home = () => {
             <FlatList
                 horizontal
                 data={dummyData.menu}
-                keyExtractor={item => `${item.id}`}
+                keyExtractor={(item) => `${item.id}`}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{ 
+                contentContainerStyle={{
                     marginTop: 30,
-                    marginBottom: 20
+                    marginBottom: 20,
                 }}
-                renderItem={({item, index}) => (
+                renderItem={({ item, index }) => (
                     <TouchableOpacity
-                        style={{ 
+                        style={{
                             marginLeft: SIZES.padding,
-                            marginRight: index == dummyData.menu.length - 1 ? SIZES.padding : 0
+                            marginRight:
+                                index == dummyData.menu.length - 1
+                                    ? SIZES.padding
+                                    : 0,
                         }}
                         onPress={() => {
-                            setSelectedMenuType(item.id)
-                            handleChangeCategory
-                            (selectedCategoryId, item.id)
+                            setSelectedMenuType(item.id);
+                            handleChangeCategory(selectedCategoryId, item.id);
                         }}
                     >
                         <Text
-                            style={{ 
-                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
-                                ...FONTS.h3
+                            style={{
+                                color:
+                                    selectedMenuType == item.id
+                                        ? COLORS.primary
+                                        : COLORS.black,
+                                ...FONTS.h3,
                             }}
                         >
                             {item.name}
                         </Text>
                     </TouchableOpacity>
                 )}
-            >
-
-            </FlatList>
-        )
+            ></FlatList>
+        );
     }
 
     function renderRecommendedSection() {
@@ -208,102 +208,125 @@ const Home = () => {
             <View>
                 <Section
                     title="Recommended"
-                    onPress={() => console.log("Show all recommended")}
-                >
-                </Section>
+                    onPress={() => navigation.navigate("RecommendedArticle")}
+                ></Section>
 
                 <FlatList
                     data={recommends}
-                    keyExtractor={item => `${item.id}`}
+                    keyExtractor={(item) => `${item.id}`}
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    renderItem={({item, index}) => (
+                    renderItem={({ item, index }) => (
                         <HorizontalArticle
-                            containerStyle={{ 
+                            containerStyle={{
                                 height: 150,
                                 width: SIZES.width * 0.85,
                                 marginLeft: index == 0 ? SIZES.padding : 18,
-                                marginRight: index == recommends.length - 1 ? SIZES.padding : 0,
+                                marginRight:
+                                    index == recommends.length - 1
+                                        ? SIZES.padding
+                                        : 0,
                                 paddingRight: SIZES.radius,
-                                alignItems: 'center'
+                                alignItems: "center",
                             }}
                             imageStyle={{
                                 borderRadius: SIZES.radius,
                                 marginHorizontal: 10,
                                 height: 110,
-                                width: 130
+                                width: 130,
                             }}
                             item={item}
-                            onPress={() => console.log("HorizontalArticle")}
-                        >
-                        </HorizontalArticle>
+                            onPress={() => navigation.navigate("DetailArticle")}
+                        ></HorizontalArticle>
                     )}
-                >
-                </FlatList>
+                ></FlatList>
             </View>
-        )
+        );
     }
 
     function renderCategories() {
         return (
             <FlatList
                 data={dummyData.categories}
-                keyExtractor={item => `${item.id}`}
+                keyExtractor={(item) => `${item.id}`}
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                renderItem={({item, index}) => (
+                renderItem={({ item, index }) => (
                     <TouchableOpacity
-                        style={{ 
-                            flexDirection: 'row',
+                        style={{
+                            flexDirection: "row",
                             height: 55,
                             marginTop: SIZES.padding,
-                            marginLeft: index == 0 ? SIZES.padding : SIZES.radius,
-                            marginRight: index == dummyData.categories.length - 1 ? SIZES.padding : 0,
+                            marginLeft:
+                                index == 0 ? SIZES.padding : SIZES.radius,
+                            marginRight:
+                                index == dummyData.categories.length - 1
+                                    ? SIZES.padding
+                                    : 0,
                             paddingHorizontal: 8,
                             borderRadius: SIZES.radius,
-                            backgroundColor: selectedCategoryId == item.id ? COLORS.primary : COLORS.lightGray2
+                            backgroundColor:
+                                selectedCategoryId == item.id
+                                    ? COLORS.primary
+                                    : COLORS.lightGray2,
                         }}
                         onPress={() => {
-                            setSelectedCategoryId(item.id)
+                            setSelectedCategoryId(item.id);
+                            if (item.id == 1) {
+                                navigation.navigate("PajakBumiBangunan");
+                            } else if (item.id == 2) {
+                                navigation.navigate("PajakRestoran");
+                            } else if (item.id == 3) {
+                                navigation.navigate("PajakHiburan");
+                            } else if (item.id == 4) {
+                                navigation.navigate("PajakReklame");
+                            } else if (item.id == 5) {
+                                navigation.navigate("PajakPeneranganJalan");
+                            } else if (item.id == 6) {
+                                navigation.navigate("PajakParkir");
+                            } else if (item.id == 7) {
+                                navigation.navigate("PajakHotel");
+                            } else {
+                                navigation.navigate("PajakRestoran");
+                            }
                             // handleChangeCategory
                         }}
                     >
                         <Image
                             source={item.icon}
-                            style={{ 
-                                alignSelf: 'center',
+                            style={{
+                                alignSelf: "center",
                                 marginRight: 5,
                                 height: 40,
-                                width: 40
+                                width: 40,
                             }}
-                        >
-
-                        </Image>
+                        ></Image>
 
                         <Text
-                            style={{ 
-                                alignSelf: 'center',
+                            style={{
+                                alignSelf: "center",
                                 marginRight: SIZES.base,
-                                color: selectedCategoryId == item.id ? COLORS.white : COLORS.darkGray,
-                                ...FONTS.h3
+                                color:
+                                    selectedCategoryId == item.id
+                                        ? COLORS.white
+                                        : COLORS.darkGray,
+                                ...FONTS.h3,
+                                fontSize: 14,
                             }}
                         >
                             {item.name}
                         </Text>
-
                     </TouchableOpacity>
                 )}
-            >
-
-            </FlatList>
-        )
+            ></FlatList>
+        );
     }
-    
+
     return (
         <>
             <View
                 style={{
-                    flex: 1
+                    flex: 1,
                     // marginBottom: 170
                 }}
             >
@@ -311,12 +334,12 @@ const Home = () => {
                 {renderSearch()}
 
                 {/* Filter modal */}
-                {showFilterModal &&
+                {showFilterModal && (
                     <FilterModal
                         isVisible={showFilterModal}
-                        onCLose={() => setShowFilterModal(false)}
+                        onRequestClose={() => setShowFilterModal(false)}
                     />
-                }
+                )}
 
                 {/* SLider */}
                 {/* {renderSlider()} */}
@@ -338,46 +361,41 @@ const Home = () => {
                             {renderMenuTypes()}
                         </View>
                     }
-                    renderItem={({item, index}) => {
-                        return(
+                    renderItem={({ item, index }) => {
+                        return (
                             <HorizontalArticle
-                                containerStyle={{ 
+                                containerStyle={{
                                     height: 130,
-                                    alignItems: 'center',
+                                    alignItems: "center",
                                     marginHorizontal: SIZES.padding,
                                     marginBottom: SIZES.radius,
-                                    paddingHorizontal: SIZES.base
+                                    paddingHorizontal: SIZES.base,
                                 }}
                                 imageStyle={{
                                     borderRadius: SIZES.radius,
-                                    marginHorizontal: 10, 
+                                    marginHorizontal: 10,
                                     height: 100,
-                                    width: 120
+                                    width: 120,
                                 }}
                                 item={item}
-                                // onPress={() => navigate('DetailArticle')}
-                            >
-
-                            </HorizontalArticle>
-                        )
+                                onPress={() =>
+                                    navigation.navigate("DetailArticle")
+                                }
+                            ></HorizontalArticle>
+                        );
                     }}
                     ListFooterComponent={
                         <View
-                            style={{ 
-                                height: 200
+                            style={{
+                                height: 200,
                             }}
-                        >
-
-                        </View>
+                        ></View>
                     }
-                >
-
-                </FlatList>
-
-            </View>    
+                ></FlatList>
+            </View>
             {/* <Loading/> */}
         </>
-    )
-}
+    );
+};
 
 export default Home;

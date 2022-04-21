@@ -5,57 +5,44 @@ import {
     Animated,
     ScrollView,
     TouchableWithoutFeedback,
-    Modal
-} from 'react-native';
+    Modal,
+} from "react-native";
 
-import {
-    COLORS,
-    FONTS,
-    SIZES,
-    constants,
-    icons
-} from '../../constants';
-import {
-    IconButton
-} from '../../components';
+import { COLORS, FONTS, SIZES, constants, icons } from "../../constants";
+import { IconButton } from "../../components";
 
-const FilterModal = ({isVisible, onClose}) => {
+const FilterModal = ({ isVisible, onRequestClose }) => {
+    const modalAnimatedValue = React.useRef(new Animated.Value(0)).current;
 
-    const modalAnimatedValue = React.useRef(new Animated.Value(0)).current
-
-    const [showFilterModal, setShowFilterModal] = React.useState(isVisible)
+    const [showFilterModal, setShowFilterModal] = React.useState(isVisible);
 
     React.useEffect(() => {
-        if(showFilterModal) {
+        if (showFilterModal) {
             Animated.timing(modalAnimatedValue, {
                 toValue: 1,
                 duration: 500,
-                useNativeDriver: false
+                useNativeDriver: false,
             }).start();
         } else {
             Animated.timing(modalAnimatedValue, {
                 toValue: 0,
                 duration: 500,
-                useNativeDriver: false
-            }).start(() => onClose());
+                useNativeDriver: false,
+            }).start(() => onRequestClose());
         }
-    }, [showFilterModal])
+    }, [showFilterModal]);
 
     const modalY = modalAnimatedValue.interpolate({
         inputRange: [0, 1],
-        outputRange: [SIZES.height, SIZES.height - 680]
-    })
+        outputRange: [SIZES.height, SIZES.height - 680],
+    });
 
     return (
-        <Modal
-            animationType="fade"
-            transparent={true}
-            visible={isVisible}
-        >
+        <Modal animationType="fade" transparent={true} visible={isVisible}>
             <View
-                style={{ 
+                style={{
                     flex: 1,
-                    backgroundColor: COLORS.transparentBlack7
+                    backgroundColor: COLORS.transparentBlack7,
                 }}
             >
                 {/* Transparent background */}
@@ -63,67 +50,63 @@ const FilterModal = ({isVisible, onClose}) => {
                     onPress={() => setShowFilterModal(false)}
                 >
                     <View
-                        style={{ 
-                            position: 'absolute',
+                        style={{
+                            position: "absolute",
                             top: 0,
                             left: 0,
                             right: 0,
-                            bottom: 0
+                            bottom: 0,
                         }}
-                    >
-
-                    </View>
+                    ></View>
                 </TouchableWithoutFeedback>
 
                 <Animated.View
-                    style={{ 
-                        position: 'absolute',
+                    style={{
+                        position: "absolute",
                         left: 0,
                         top: modalY,
-                        width: '100%',
-                        height: '100%',
+                        width: "100%",
+                        height: "100%",
                         padding: SIZES.padding,
                         borderTopRightRadius: SIZES.padding,
                         borderTopLeftRadius: SIZES.padding,
-                        backgroundColor: COLORS.white
+                        backgroundColor: COLORS.white,
                     }}
                 >
                     {/* Header */}
                     <View
-                        style={{ 
-                            flexDirection: 'row',
-                            alignItems: 'center'
+                        style={{
+                            flexDirection: "row",
+                            alignItems: "center",
                         }}
                     >
                         <Text
-                            style={{ 
+                            style={{
                                 flex: 1,
                                 ...FONTS.h3,
-                                fontSize: 18
+                                fontSize: 18,
                             }}
                         >
-                            Filter your search
+                            Filter article
                         </Text>
 
                         <IconButton
-                            containerStyle={{ 
+                            containerStyle={{
                                 borderWidth: 2,
                                 borderRadius: 10,
-                                borderColor: COLORS.gray2
+                                borderColor: COLORS.gray2,
                             }}
                             icon={icons.cross}
-                            iconStyle={{ 
-                                tintColor: COLORS.gray2
+                            iconStyle={{
+                                tintColor: COLORS.gray2,
                             }}
                             onPress={() => setShowFilterModal(false)}
-                        >
-
-                        </IconButton>
+                        ></IconButton>
                     </View>
                 </Animated.View>
             </View>
         </Modal>
-    )
-}
+    );
+};
 
 export default FilterModal;

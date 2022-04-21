@@ -1,335 +1,324 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     Text,
     TouchableOpacity,
     TouchableWithoutFeedback,
     Image,
-    FlatList
-} from 'react-native';
+    FlatList,
+} from "react-native";
 import Animated, {
     useSharedValue,
     useAnimatedStyle,
-    withTiming
-} from 'react-native-reanimated';
+    withTiming,
+} from "react-native-reanimated";
 
-import LinearGradient from 'react-native-linear-gradient';
-import { connect } from 'react-redux';
-import { setSelectedTab } from '../stores/tab/tabActions';
+import LinearGradient from "react-native-linear-gradient";
+import { connect } from "react-redux";
+import { setSelectedTab } from "../stores/tab/tabActions";
 
-import {
-    Home,
-    Article,
-    Event,
-    Profile,
-    Favourite
-} from '../screens';
+import { Home, Article, Event, Profile, Office } from "../screens";
 
-import { Header } from '../components';
+import { Header } from "../components";
 import {
     COLORS,
     FONTS,
     SIZES,
     constants,
     icons,
-    dummyData
-} from '../constants';
+    dummyData,
+} from "../constants";
 
-const TabButton = ({label, icon, isFocused, outerContainerStyle, innerContainerStyle, onPress}) => {
-    return(
-        <TouchableWithoutFeedback
-            onPress={onPress}
-        >
+const TabButton = ({
+    label,
+    icon,
+    isFocused,
+    outerContainerStyle,
+    innerContainerStyle,
+    onPress,
+}) => {
+    return (
+        <TouchableWithoutFeedback onPress={onPress}>
             <Animated.View
                 style={[
-                    { 
+                    {
                         flex: 1,
-                        alignItems: 'center',
-                        justifyContent: 'center'
+                        alignItems: "center",
+                        justifyContent: "center",
                     },
-                    outerContainerStyle
+                    outerContainerStyle,
                 ]}
             >
                 <Animated.View
                     style={[
-                        { 
-                            flexDirection: 'row',
-                            width: '80%',
+                        {
+                            flexDirection: "row",
+                            width: "80%",
                             height: 50,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            borderRadius: 25
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: 25,
                         },
-                        innerContainerStyle
+                        innerContainerStyle,
                     ]}
                 >
                     <Image
                         source={icon}
-                        style={{ 
+                        style={{
                             width: 20,
                             height: 20,
-                            tintColor: isFocused ? COLORS.white : COLORS.gray
+                            tintColor: isFocused ? COLORS.white : COLORS.gray,
                         }}
-                    >
+                    ></Image>
 
-                    </Image>
-
-                    {isFocused &&
+                    {isFocused && (
                         <Text
                             numberOfLines={1}
-                            style={{ 
+                            style={{
                                 marginLeft: SIZES.base,
                                 color: COLORS.white,
-                                ...FONTS.h3
+                                ...FONTS.h3,
                             }}
                         >
                             {label}
                         </Text>
-                    }
-
+                    )}
                 </Animated.View>
-
             </Animated.View>
-
         </TouchableWithoutFeedback>
-    )
-}
+    );
+};
 
-const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelectedTab }) => {
-
-    const flatListRef = React.useRef()
+const MainLayout = ({
+    drawerAnimationStyle,
+    navigation,
+    selectedTab,
+    setSelectedTab,
+}) => {
+    const flatListRef = React.useRef();
     // Reanimated Shared Value
-
-    const homeTabFlex = useSharedValue(1)
-    const homeTabColor = useSharedValue(COLORS.white)
-    const articleTabFlex = useSharedValue(1)
-    const articleTabColor = useSharedValue(COLORS.white)
-    const favouriteTabFlex = useSharedValue(1)
-    const favouriteTabColor = useSharedValue(COLORS.white)
-    const eventTabFlex = useSharedValue(1)
-    const eventTabColor = useSharedValue(COLORS.white)
-    const profileTabFlex = useSharedValue(1)
-    const profileTabColor = useSharedValue(COLORS.white)
+    const homeTabFlex = useSharedValue(1);
+    const homeTabColor = useSharedValue(COLORS.white);
+    const articleTabFlex = useSharedValue(1);
+    const articleTabColor = useSharedValue(COLORS.white);
+    const officeTabFlex = useSharedValue(1);
+    const officeTabColor = useSharedValue(COLORS.white);
+    const eventTabFlex = useSharedValue(1);
+    const eventTabColor = useSharedValue(COLORS.white);
+    const profileTabFlex = useSharedValue(1);
+    const profileTabColor = useSharedValue(COLORS.white);
 
     // Reanimated Animated Value
-    
+
     const homeFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: homeTabFlex.value
-        }
-    })
+            flex: homeTabFlex.value,
+        };
+    });
 
     const homeColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: homeTabColor.value
-        }
-    })
+            backgroundColor: homeTabColor.value,
+        };
+    });
 
     const articleFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: articleTabFlex.value
-        }
-    })
+            flex: articleTabFlex.value,
+        };
+    });
 
     const articleColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: articleTabColor.value
-        }
-    })
+            backgroundColor: articleTabColor.value,
+        };
+    });
 
-    const favouriteFlexStyle = useAnimatedStyle(() => {
+    const officeFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: favouriteTabFlex.value
-        }
-    })
+            flex: officeTabFlex.value,
+        };
+    });
 
-    const favouriteColorStyle = useAnimatedStyle(() => {
+    const officeColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: favouriteTabColor.value
-        }
-    })
+            backgroundColor: officeTabColor.value,
+        };
+    });
 
     const eventFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: eventTabFlex.value
-        }
-    })
+            flex: eventTabFlex.value,
+        };
+    });
 
     const eventColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: eventTabColor.value
-        }
-    })
+            backgroundColor: eventTabColor.value,
+        };
+    });
 
     const profileFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: profileTabFlex.value
-        }
-    })
+            flex: profileTabFlex.value,
+        };
+    });
 
     const profileColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: profileTabColor.value
-        }
-    })
+            backgroundColor: profileTabColor.value,
+        };
+    });
 
     React.useEffect(() => {
-        setSelectedTab(constants.screens.home)
-    }, [])
+        setSelectedTab(constants.screens.home);
+    }, []);
 
     React.useEffect(() => {
-        if(selectedTab == constants.screens.home){
+        if (selectedTab == constants.screens.home) {
             flatListRef?.current?.scrollToIndex({
                 index: 0,
-                animated: false
-            })
+                animated: false,
+            });
 
-            homeTabFlex.value = withTiming(4, { duration: 500 })
+            homeTabFlex.value = withTiming(4, { duration: 500 });
             homeTabColor.value = withTiming(COLORS.primary, {
-                duration: 500
-            })
+                duration: 500,
+            });
         } else {
-            homeTabFlex.value = withTiming(1, { duration: 500 })
+            homeTabFlex.value = withTiming(1, { duration: 500 });
             homeTabColor.value = withTiming(COLORS.white, {
-                duration: 500
-            })
+                duration: 500,
+            });
         }
 
-        if(selectedTab == constants.screens.article){
+        if (selectedTab == constants.screens.article) {
             flatListRef?.current?.scrollToIndex({
                 index: 1,
-                animated: false
-            })
+                animated: false,
+            });
 
-            articleTabFlex.value = withTiming(4, { duration: 500 })
+            articleTabFlex.value = withTiming(4, { duration: 500 });
             articleTabColor.value = withTiming(COLORS.primary, {
-                duration: 500
-            })
+                duration: 500,
+            });
         } else {
-            articleTabFlex.value = withTiming(1, { duration: 500 })
+            articleTabFlex.value = withTiming(1, { duration: 500 });
             articleTabColor.value = withTiming(COLORS.white, {
-                duration: 500
-            })
+                duration: 500,
+            });
         }
 
-        if(selectedTab == constants.screens.favourite){
+        if (selectedTab == constants.screens.office) {
             flatListRef?.current?.scrollToIndex({
                 index: 3,
-                animated: false
-            })
+                animated: false,
+            });
 
-            favouriteTabFlex.value = withTiming(4, { duration: 500 })
-            favouriteTabColor.value = withTiming(COLORS.primary, {
-                duration: 500
-            })
+            officeTabFlex.value = withTiming(4, { duration: 500 });
+            officeTabColor.value = withTiming(COLORS.primary, {
+                duration: 500,
+            });
         } else {
-            favouriteTabFlex.value = withTiming(1, { duration: 500 })
-            favouriteTabColor.value = withTiming(COLORS.white, {
-                duration: 500
-            })
+            officeTabFlex.value = withTiming(1, { duration: 500 });
+            officeTabColor.value = withTiming(COLORS.white, {
+                duration: 500,
+            });
         }
 
-        if(selectedTab == constants.screens.event){
+        if (selectedTab == constants.screens.event) {
             flatListRef?.current?.scrollToIndex({
                 index: 2,
-                animated: false
-            })
+                animated: false,
+            });
 
-            eventTabFlex.value = withTiming(4, { duration: 500 })
+            eventTabFlex.value = withTiming(4, { duration: 500 });
             eventTabColor.value = withTiming(COLORS.primary, {
-                duration: 500
-            })
+                duration: 500,
+            });
         } else {
-            eventTabFlex.value = withTiming(1, { duration: 500 })
+            eventTabFlex.value = withTiming(1, { duration: 500 });
             eventTabColor.value = withTiming(COLORS.white, {
-                duration: 500
-            })
+                duration: 500,
+            });
         }
 
-        if(selectedTab == constants.screens.profile){
+        if (selectedTab == constants.screens.profile) {
             flatListRef?.current?.scrollToIndex({
                 index: 4,
-                animated: false
-            })
+                animated: false,
+            });
 
-            profileTabFlex.value = withTiming(4, { duration: 500 })
+            profileTabFlex.value = withTiming(4, { duration: 500 });
             profileTabColor.value = withTiming(COLORS.primary, {
-                duration: 500
-            })
+                duration: 500,
+            });
         } else {
-            profileTabFlex.value = withTiming(1, { duration: 500 })
+            profileTabFlex.value = withTiming(1, { duration: 500 });
             profileTabColor.value = withTiming(COLORS.white, {
-                duration: 500
-            })
+                duration: 500,
+            });
         }
-    }, [selectedTab])
+    }, [selectedTab]);
 
     return (
         <Animated.View
             style={{
                 flex: 1,
                 backgroundColor: COLORS.white,
-                ...drawerAnimationStyle
+                ...drawerAnimationStyle,
             }}
         >
             {/* Header */}
             <Header
-                containerStyle={{ 
+                containerStyle={{
                     height: 50,
                     paddingHorizontal: SIZES.padding,
                     marginTop: 40,
-                    alignItems: 'center'
+                    alignItems: "center",
                 }}
                 title={selectedTab.toUpperCase()}
                 leftComponent={
                     <TouchableOpacity
-                        style={{ 
+                        style={{
                             width: 40,
                             height: 40,
-                            alignItems: 'center',
-                            justifyContent: 'center',
+                            alignItems: "center",
+                            justifyContent: "center",
                             borderWidth: 1,
                             borderColor: COLORS.gray2,
-                            borderRadius: SIZES.radius
+                            borderRadius: SIZES.radius,
                         }}
                         onPress={() => navigation.openDrawer()}
                     >
-                        <Image
-                            source={icons.menu}
-                        >
-
-                        </Image>
+                        <Image source={icons.menu}></Image>
                     </TouchableOpacity>
                 }
                 rightComponent={
                     <TouchableOpacity
-                        style={{ 
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            borderRadius: SIZES.radius
+                        style={{
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: SIZES.radius,
                         }}
                         onPress={() => navigation.openDrawer()}
                     >
                         <Image
                             source={dummyData?.appProfile?.profile_image}
-                            style={{ 
+                            style={{
                                 width: 40,
                                 height: 40,
                                 // borderRadius: SIZES.radius
                             }}
-                        >
-
-                        </Image>
+                        ></Image>
                     </TouchableOpacity>
                 }
-            >
-
-            </Header>
+            ></Header>
 
             {/* Content */}
             <View
-                style={{ 
-                    flex: 1
+                style={{
+                    flex: 1,
                 }}
             >
                 <FlatList
@@ -337,71 +326,74 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     horizontal
                     scrollEnabled={false}
                     paddingEnabled
-                    snapToAlignment='center'
+                    snapToAlignment="center"
                     snapToInterval={SIZES.width}
                     showsHorizontalScrollIndicator={false}
                     data={constants.bottom_tabs}
-                    keyExtractor={item => `${item.id}`}
-                    renderItem={({item, index}) => {
+                    keyExtractor={(item) => `${item.id}`}
+                    renderItem={({ item, index }) => {
                         return (
                             <View
-                                style={{ 
+                                style={{
                                     height: SIZES.height,
-                                    width: SIZES.width
+                                    width: SIZES.width,
                                 }}
                             >
-                                {item.label == constants.screens.home && <Home />}
-                                {item.label == constants.screens.article && <Article />}
-                                {item.label == constants.screens.event && <Event />}
-                                {item.label == constants.screens.favourite && <Favourite />}
-                                {item.label == constants.screens.profile && <Profile />}
+                                {item.label == constants.screens.home && (
+                                    <Home navigation={navigation} />
+                                )}
+                                {item.label == constants.screens.article && (
+                                    <Article navigation={navigation} />
+                                )}
+                                {item.label == constants.screens.event && (
+                                    <Event navigation={navigation} />
+                                )}
+                                {item.label == constants.screens.office && (
+                                    <Office navigation={navigation} />
+                                )}
+                                {item.label == constants.screens.profile && (
+                                    <Profile navigation={navigation} />
+                                )}
                             </View>
-                        )
+                        );
                     }}
-                >
-                </FlatList>
-
+                ></FlatList>
             </View>
 
             {/* Footer */}
 
             <View
-                style={{ 
+                style={{
                     height: 80,
-                    justifyContent: 'flex-end'
+                    justifyContent: "flex-end",
                 }}
             >
                 {/* Shadow */}
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 4 }}
-                    colors={[
-                        COLORS.transparent,
-                        COLORS.gray
-                    ]}
-                    style={{ 
-                        position: 'absolute',
+                    colors={[COLORS.transparent, COLORS.gray]}
+                    style={{
+                        position: "absolute",
                         top: -20,
                         left: 0,
                         right: 0,
                         height: 100,
                         borderTopLeftRadius: 15,
-                        borderTopRightRadius: 15
+                        borderTopRightRadius: 15,
                     }}
-                >
-
-                </LinearGradient>
+                ></LinearGradient>
 
                 {/* Tabs */}
                 <View
-                    style={{ 
+                    style={{
                         flex: 1,
-                        flexDirection: 'row',
+                        flexDirection: "row",
                         paddingHorizontal: SIZES.radius,
                         paddingBottom: 10,
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
-                        backgroundColor: COLORS.white
+                        backgroundColor: COLORS.white,
                     }}
                 >
                     <TabButton
@@ -411,9 +403,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         outerContainerStyle={homeFlexStyle}
                         innerContainerStyle={homeColorStyle}
                         onPress={() => setSelectedTab(constants.screens.home)}
-                    >
-
-                    </TabButton>
+                    ></TabButton>
 
                     <TabButton
                         label={constants.screens.article}
@@ -421,10 +411,10 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         isFocused={selectedTab == constants.screens.article}
                         outerContainerStyle={articleFlexStyle}
                         innerContainerStyle={articleColorStyle}
-                        onPress={() => setSelectedTab(constants.screens.article)}
-                    >
-
-                    </TabButton>
+                        onPress={() =>
+                            setSelectedTab(constants.screens.article)
+                        }
+                    ></TabButton>
 
                     <TabButton
                         label={constants.screens.event}
@@ -433,51 +423,45 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         outerContainerStyle={eventFlexStyle}
                         innerContainerStyle={eventColorStyle}
                         onPress={() => setSelectedTab(constants.screens.event)}
-                    >
-
-                    </TabButton>
+                    ></TabButton>
 
                     <TabButton
-                        label={constants.screens.favourite}
-                        icon={icons.favourite}
-                        isFocused={selectedTab == constants.screens.favourite}
-                        outerContainerStyle={favouriteFlexStyle}
-                        innerContainerStyle={favouriteColorStyle}
-                        onPress={() => setSelectedTab(constants.screens.favourite)}
-                    >
+                        label={constants.screens.office}
+                        icon={icons.office}
+                        isFocused={selectedTab == constants.screens.office}
+                        outerContainerStyle={officeFlexStyle}
+                        innerContainerStyle={officeColorStyle}
+                        onPress={() => setSelectedTab(constants.screens.office)}
+                    ></TabButton>
 
-                    </TabButton>
-                    
                     <TabButton
                         label={constants.screens.profile}
                         icon={icons.profile}
                         isFocused={selectedTab == constants.screens.profile}
                         outerContainerStyle={profileFlexStyle}
                         innerContainerStyle={profileColorStyle}
-                        onPress={() => setSelectedTab(constants.screens.profile)}
-                    >
-
-                    </TabButton>
-
+                        onPress={() =>
+                            setSelectedTab(constants.screens.profile)
+                        }
+                    ></TabButton>
                 </View>
             </View>
-
         </Animated.View>
-    )
-}
+    );
+};
 
 function mapStateToProps(state) {
     return {
-        selectedTab: state.tabReducer.selectedTab
-    }
+        selectedTab: state.tabReducer.selectedTab,
+    };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        setSelectedTab: (selectedTab) => {return dispatch
-        (setSelectedTab(selectedTab))}
-    }
+        setSelectedTab: (selectedTab) => {
+            return dispatch(setSelectedTab(selectedTab));
+        },
+    };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)
-(MainLayout)
+export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);

@@ -2,7 +2,7 @@ const screens = {
     main_layout: "MainLayout",
     home: "Home",
     event: "Event",
-    favourite: "My Favourite",
+    office: "Kantor",
     notification: "Notification",
     article: "Article",
     help: "Help Center",
@@ -10,30 +10,30 @@ const screens = {
     logout: "Logout",
     invite: "Invite a Friend",
     profile: "Profile",
-}
+};
 
 const bottom_tabs = [
     {
-        id: 0,
+        id: 1,
         label: screens.home,
     },
     {
-        id: 1,
+        id: 2,
         label: screens.article,
     },
     {
-        id: 2,
+        id: 3,
         label: screens.event,
     },
     {
-        id: 3,
-        label: screens.favourite,
+        id: 4,
+        label: screens.office,
     },
     {
-        id: 4,
+        id: 5,
         label: screens.profile,
-    }
-]
+    },
+];
 
 const delivery_time = [
     {
@@ -42,13 +42,13 @@ const delivery_time = [
     },
     {
         id: 2,
-        label: "20 Mins"
+        label: "20 Mins",
     },
     {
         id: 3,
-        label: "30 Mins"
-    }
-]
+        label: "30 Mins",
+    },
+];
 
 const ratings = [
     {
@@ -70,48 +70,48 @@ const ratings = [
     {
         id: 5,
         label: 5,
-    }
-]
+    },
+];
 
 const tags = [
     {
         id: 1,
-        label: "Burger"
+        label: "Burger",
     },
     {
         id: 2,
-        label: "Fast Food"
+        label: "Fast Food",
     },
     {
         id: 3,
-        label: "Pizza"
+        label: "Pizza",
     },
     {
         id: 4,
-        label: "Asian"
+        label: "Asian",
     },
     {
         id: 5,
-        label: "Dessert"
+        label: "Dessert",
     },
     {
         id: 6,
-        label: "Breakfast"
+        label: "Breakfast",
     },
     {
         id: 7,
-        label: "Vegetable"
+        label: "Vegetable",
     },
     {
         id: 8,
-        label: "Taccos"
-    }
-]
+        label: "Taccos",
+    },
+];
 
 export default {
     screens,
     bottom_tabs,
     delivery_time,
     ratings,
-    tags
-}
+    tags,
+};

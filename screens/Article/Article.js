@@ -1,53 +1,51 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     Text,
     TouchableOpacity,
     Image,
     TextInput,
-    FlatList
-} from 'react-native';
+    FlatList,
+} from "react-native";
 
-import { FilterModal } from '../';
-import Loading from '../Loading/Loading';
-import { HorizontalArticle } from '../../components';
+import { FilterModal } from "../";
+import Loading from "../Loading/Loading";
+import { HorizontalArticle } from "../../components";
 import {
     COLORS,
     FONTS,
     SIZES,
     constants,
     icons,
-    dummyData
-} from '../../constants';
+    dummyData,
+} from "../../constants";
 
-const Section = ({title, onPress, children}) => {
+const Section = ({ title, onPress, children }) => {
     return (
         <View>
             {/* Header */}
             <View
-                style={{ 
-                    flexDirection: 'row',
+                style={{
+                    flexDirection: "row",
                     marginHorizontal: SIZES.padding,
                     marginTop: 30,
-                    marginBottom: 20
+                    marginBottom: 20,
                 }}
             >
                 <Text
-                    style={{ 
+                    style={{
                         flex: 1,
-                        ...FONTS.h3
+                        ...FONTS.h3,
                     }}
                 >
                     {title}
                 </Text>
 
-                <TouchableOpacity
-                    onPress={onPress}
-                >
+                <TouchableOpacity onPress={onPress}>
                     <Text
-                        style={{ 
+                        style={{
                             color: COLORS.primary,
-                            ...FONTS.body3
+                            ...FONTS.body3,
                         }}
                     >
                         Show All
@@ -55,36 +53,43 @@ const Section = ({title, onPress, children}) => {
                 </TouchableOpacity>
             </View>
         </View>
-    )
-}
+    );
+};
 
-const Article = () => {
+const Article = ({ navigation }) => {
+    const [selectedCategoryId, setSelectedCategoryId] = React.useState(1);
+    const [selectedMenuType, setSelectedMenuType] = React.useState(1);
+    const [recommends, setRecommends] = React.useState([]);
+    const [menuList, setMenuList] = React.useState([]);
 
-    const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
-    const [selectedMenuType, setSelectedMenuType] = React.useState(1)
-    const [recommends, setRecommends] = React.useState([])
-    const [menuList, setMenuList] = React.useState([])
-
-    const [showFilterModal, setShowFilterModal] = React.useState(false)
+    const [showFilterModal, setShowFilterModal] = React.useState(false);
 
     React.useEffect(() => {
-        handleChangeCategory(selectedCategoryId, selectedMenuType)
-    }, [])
+        handleChangeCategory(selectedCategoryId, selectedMenuType);
+    }, []);
 
     // Handle
 
     function handleChangeCategory(categoryId, menuTypeId) {
         // Retrieve the recommended menu
-        let selectedRecommend = dummyData.menu.find(a => a.name == "Recommended")
+        let selectedRecommend = dummyData.menu.find(
+            (a) => a.name == "Recommended"
+        );
 
         // Find the menu based on the menuTypeId
-        let selectedMenu = dummyData.menu.find(a => a.id == menuTypeId)
+        let selectedMenu = dummyData.menu.find((a) => a.id == menuTypeId);
 
         // Set the recommended menu based on the categoryId
-        setRecommends(selectedRecommend?.list.filter(a => a.categories.includes(categoryId)))
+        setRecommends(
+            selectedRecommend?.list.filter((a) =>
+                a.categories.includes(categoryId)
+            )
+        );
 
         // Set the menu based on the categoryId
-        setMenuList(selectedMenu?.list.filter(a => a.categories.includes(categoryId)))
+        setMenuList(
+            selectedMenu?.list.filter((a) => a.categories.includes(categoryId))
+        );
     }
 
     function renderMenuTypes() {
@@ -92,45 +97,48 @@ const Article = () => {
             <FlatList
                 horizontal
                 data={dummyData.menu}
-                keyExtractor={item => `${item.id}`}
+                keyExtractor={(item) => `${item.id}`}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{ 
+                contentContainerStyle={{
                     marginTop: 30,
-                    marginBottom: 20
+                    marginBottom: 20,
                 }}
-                renderItem={({item, index}) => (
+                renderItem={({ item, index }) => (
                     <TouchableOpacity
-                        style={{ 
+                        style={{
                             marginLeft: SIZES.padding,
-                            marginRight: index == dummyData.menu.length - 1 ? SIZES.padding : 0
+                            marginRight:
+                                index == dummyData.menu.length - 1
+                                    ? SIZES.padding
+                                    : 0,
                         }}
                         onPress={() => {
-                            setSelectedMenuType(item.id)
-                            handleChangeCategory
-                            (selectedCategoryId, item.id)
+                            setSelectedMenuType(item.id);
+                            handleChangeCategory(selectedCategoryId, item.id);
                         }}
                     >
                         <Text
-                            style={{ 
-                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
-                                ...FONTS.h3
+                            style={{
+                                color:
+                                    selectedMenuType == item.id
+                                        ? COLORS.primary
+                                        : COLORS.black,
+                                ...FONTS.h3,
                             }}
                         >
                             {item.name}
                         </Text>
                     </TouchableOpacity>
                 )}
-            >
-
-            </FlatList>
-        )
+            ></FlatList>
+        );
     }
 
     return (
         <>
             <View
                 style={{
-                    flex: 1
+                    flex: 1,
                     // marginBottom: 170
                 }}
             >
@@ -145,47 +153,42 @@ const Article = () => {
                             {renderMenuTypes()}
                         </View>
                     }
-                    renderItem={({item, index}) => {
-                        return(
+                    renderItem={({ item, index }) => {
+                        return (
                             <HorizontalArticle
-                                containerStyle={{ 
+                                containerStyle={{
                                     height: 130,
-                                    alignItems: 'center',
+                                    alignItems: "center",
                                     marginHorizontal: SIZES.padding,
                                     marginBottom: SIZES.radius,
-                                    paddingHorizontal: SIZES.base
+                                    paddingHorizontal: SIZES.base,
                                 }}
                                 imageStyle={{
                                     borderRadius: SIZES.radius,
-                                    marginHorizontal: 10, 
+                                    marginHorizontal: 10,
                                     height: 100,
-                                    width: 120
+                                    width: 120,
                                 }}
                                 item={item}
-                                // onPress={() => navigation.replace("DetailArticle")}
-                                onPress={() => console.log('Tes')}
-                            >
-
-                            </HorizontalArticle>
-                        )
+                                onPress={() =>
+                                    navigation.navigate("DetailArticle")
+                                }
+                                // onPress={() => console.log(navigation)}
+                            ></HorizontalArticle>
+                        );
                     }}
                     ListFooterComponent={
                         <View
-                            style={{ 
-                                height: 200
+                            style={{
+                                height: 200,
                             }}
-                        >
-
-                        </View>
+                        ></View>
                     }
-                >
-
-                </FlatList>
-
-            </View>    
+                ></FlatList>
+            </View>
             {/* <Loading/> */}
         </>
-    )
-}
+    );
+};
 
 export default Article;

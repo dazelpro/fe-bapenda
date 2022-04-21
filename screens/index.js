@@ -15,11 +15,14 @@ import Article from "./Article/Article";
 // Detail Article
 import DetailArticle from "./Article/DetailArticle";
 
+// Recommended Article
+import RecommendedArticle from "./Article/RecommendedArticle";
+
 // Cart
 import Event from "./Event/Event";
 
-// Favourite
-import Favourite from "./Favourite/Favourite";
+// Office
+import Office from "./Office/Office";
 
 // Notification
 import Notification from "./Notification/Notification";
@@ -30,6 +33,30 @@ import Profile from "./Profile/Profile";
 // Loading
 import Loading from "./Loading/Loading";
 
+// Check
+import Check from "./Check/Check";
+
+// Pajak Bumi Bangunan
+import PajakBumiBangunan from "./Pajak/PajakBumiBangunan";
+
+// Pajak Restoran
+import PajakRestoran from "./Pajak/PajakRestoran";
+
+// Pajak Hiburan
+import PajakHiburan from "./Pajak/PajakHiburan";
+
+// Pajak Reklame
+import PajakReklame from "./Pajak/PajakReklame";
+
+// Pajak Penerangan Jalan
+import PajakPeneranganJalan from "./Pajak/PajakPeneranganJalan";
+
+// Pajak Parkir
+import PajakParkir from "./Pajak/PajakParkir";
+
+// Pajak Hotel
+import PajakHotel from "./Pajak/PajakHotel";
+
 export {
     MainLayout,
     Splash,
@@ -38,8 +65,17 @@ export {
     Article,
     DetailArticle,
     Event,
-    Favourite,
+    Office,
     Notification,
     Profile,
-    Loading
-}
+    Loading,
+    RecommendedArticle,
+    Check,
+    PajakBumiBangunan,
+    PajakRestoran,
+    PajakHiburan,
+    PajakReklame,
+    PajakPeneranganJalan,
+    PajakParkir,
+    PajakHotel,
+};
