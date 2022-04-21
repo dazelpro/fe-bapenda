@@ -1,13 +1,6 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-import {
-    COLORS,
-    FONTS,
-    SIZES,
-    constants,
-    icons,
-    dummyData,
-} from "../../constants";
+import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../../constants";
 import { TextButton } from "../../components";
 
 const Profile = ({ navigation }) => {
@@ -72,6 +65,10 @@ const Profile = ({ navigation }) => {
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -80,14 +77,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.edit}
-                            />
+                            >
+                                <Image
+                                    source={icons.edit}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -113,18 +121,17 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
-                            marginBottom: SIZES.font,
+                            height: 10,
                         }}
                     ></View>
 
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -133,14 +140,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.history}
-                            />
+                            >
+                                <Image
+                                    source={icons.history}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -166,18 +184,17 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
-                            marginBottom: SIZES.font,
+                            height: 10,
                         }}
                     ></View>
 
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -186,14 +203,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.notification}
-                            />
+                            >
+                                <Image
+                                    source={icons.notification}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -219,18 +247,17 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
-                            marginBottom: SIZES.font,
+                            height: 10,
                         }}
                     ></View>
 
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -239,14 +266,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.setting}
-                            />
+                            >
+                                <Image
+                                    source={icons.setting}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -272,12 +310,7 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
-                            marginBottom: SIZES.font,
+                            height: 10,
                         }}
                     ></View>
 
@@ -285,6 +318,10 @@ const Profile = ({ navigation }) => {
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -293,14 +330,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.invite}
-                            />
+                            >
+                                <Image
+                                    source={icons.invite}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -326,11 +374,7 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
+                            height: 10,
                         }}
                     ></View>
 
@@ -349,6 +393,10 @@ const Profile = ({ navigation }) => {
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -357,14 +405,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.contactus}
-                            />
+                            >
+                                <Image
+                                    source={icons.contactus}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -390,12 +449,7 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
-                            marginBottom: SIZES.font,
+                            height: 10,
                         }}
                     ></View>
 
@@ -403,6 +457,10 @@ const Profile = ({ navigation }) => {
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -411,14 +469,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.privacy}
-                            />
+                            >
+                                <Image
+                                    source={icons.privacy}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -444,12 +513,7 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
-                            marginBottom: SIZES.font,
+                            height: 10,
                         }}
                     ></View>
 
@@ -457,6 +521,10 @@ const Profile = ({ navigation }) => {
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -465,14 +533,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.term}
-                            />
+                            >
+                                <Image
+                                    source={icons.term}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -498,12 +577,7 @@ const Profile = ({ navigation }) => {
 
                     <View
                         style={{
-                            backgroundColor: COLORS.lightGray2,
-                            height: 0.5,
-                            marginLeft: 70,
-                            marginRight: SIZES.padding,
-                            marginTop: SIZES.radius,
-                            marginBottom: SIZES.font,
+                            height: 10,
                         }}
                     ></View>
 
@@ -511,6 +585,10 @@ const Profile = ({ navigation }) => {
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
+                            borderRadius: SIZES.radius,
+                            padding: SIZES.base,
+                            borderWidth: 1,
+                            borderColor: COLORS.lightGray2,
                         }}
                         onPress={() => console.log("Privacy")}
                     >
@@ -519,14 +597,25 @@ const Profile = ({ navigation }) => {
                                 flexDirection: "row",
                             }}
                         >
-                            <Image
+                            <TouchableOpacity
                                 style={{
-                                    tintColor: COLORS.transparentBlack7,
-                                    width: 23,
-                                    height: 23,
+                                    width: 50,
+                                    height: 50,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderRadius: SIZES.radius,
+                                    backgroundColor: COLORS.lightOrange2,
                                 }}
-                                source={icons.star}
-                            />
+                            >
+                                <Image
+                                    source={icons.star}
+                                    style={{
+                                        width: 30,
+                                        height: 30,
+                                        tintColor: COLORS.white,
+                                    }}
+                                ></Image>
+                            </TouchableOpacity>
                             <Text
                                 style={{
                                     color: COLORS.transparentBlack7,
@@ -553,7 +642,7 @@ const Profile = ({ navigation }) => {
                 {/* Footer */}
                 <View
                     style={{
-                        marginTop: SIZES.font,
+                        marginTop: SIZES.padding,
                         alignItems: "center",
                         justifyContent: "center",
                     }}
