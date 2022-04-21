@@ -60,6 +60,9 @@ import PajakHotel from "./Pajak/PajakHotel";
 // Privacy Police
 import PrivacyPolice from "./PrivacyPolice/PrivacyPolice";
 
+// Under Construction
+import UnderConstruction from "./UnderConstruction/UnderConstruction";
+
 export {
     MainLayout,
     Splash,
@@ -82,4 +85,5 @@ export {
     PajakParkir,
     PajakHotel,
     PrivacyPolice,
+    UnderConstruction,
 };

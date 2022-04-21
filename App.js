@@ -23,6 +23,7 @@ import {
     PajakHotel,
     PajakBumiBangunan,
     PrivacyPolice,
+    UnderConstruction,
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -54,6 +55,7 @@ const App = () => {
                     <Stack.Screen name="PajakParkir" component={PajakParkir} />
                     <Stack.Screen name="PajakHotel" component={PajakHotel} />
                     <Stack.Screen name="PrivacyPolice" component={PrivacyPolice} />
+                    <Stack.Screen name="UnderConstruction" component={UnderConstruction} />
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

@@ -610,7 +610,7 @@ const Profile = ({ navigation }) => {
                             borderWidth: 1,
                             borderColor: COLORS.lightGray2,
                         }}
-                        onPress={() => console.log("Privacy")}
+                        onPress={() => navigation.navigate("UnderConstruction")}
                     >
                         <View
                             style={{
