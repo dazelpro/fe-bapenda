@@ -57,6 +57,9 @@ import PajakParkir from "./Pajak/PajakParkir";
 // Pajak Hotel
 import PajakHotel from "./Pajak/PajakHotel";
 
+// Privacy Police
+import PrivacyPolice from "./PrivacyPolice/PrivacyPolice";
+
 export {
     MainLayout,
     Splash,
@@ -78,4 +81,5 @@ export {
     PajakPeneranganJalan,
     PajakParkir,
     PajakHotel,
+    PrivacyPolice,
 };

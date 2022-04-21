@@ -22,6 +22,7 @@ import {
     PajakParkir,
     PajakHotel,
     PajakBumiBangunan,
+    PrivacyPolice,
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -42,37 +43,17 @@ const App = () => {
                     <Stack.Screen name="Splash" component={Splash} />
                     <Stack.Screen name="Home" component={Home} />
                     <Stack.Screen name="Article" component={Article} />
-                    <Stack.Screen
-                        name="DetailArticle"
-                        component={DetailArticle}
-                    />
-                    <Stack.Screen
-                        name="RecommendedArticle"
-                        component={RecommendedArticle}
-                    />
+                    <Stack.Screen name="DetailArticle" component={DetailArticle} />
+                    <Stack.Screen name="RecommendedArticle" component={RecommendedArticle} />
                     <Stack.Screen name="Check" component={Check} />
-                    <Stack.Screen
-                        name="PajakBumiBangunan"
-                        component={PajakBumiBangunan}
-                    />
-                    <Stack.Screen
-                        name="PajakRestoran"
-                        component={PajakRestoran}
-                    />
-                    <Stack.Screen
-                        name="PajakHiburan"
-                        component={PajakHiburan}
-                    />
-                    <Stack.Screen
-                        name="PajakReklame"
-                        component={PajakReklame}
-                    />
-                    <Stack.Screen
-                        name="PajakPeneranganJalan"
-                        component={PajakPeneranganJalan}
-                    />
+                    <Stack.Screen name="PajakBumiBangunan" component={PajakBumiBangunan} />
+                    <Stack.Screen name="PajakRestoran" component={PajakRestoran} />
+                    <Stack.Screen name="PajakHiburan" component={PajakHiburan} />
+                    <Stack.Screen name="PajakReklame" component={PajakReklame} />
+                    <Stack.Screen name="PajakPeneranganJalan" component={PajakPeneranganJalan} />
                     <Stack.Screen name="PajakParkir" component={PajakParkir} />
                     <Stack.Screen name="PajakHotel" component={PajakHotel} />
+                    <Stack.Screen name="PrivacyPolice" component={PrivacyPolice} />
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>
