@@ -1,19 +1,9 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import {
-    createDrawerNavigator,
-    DrawerContentScrollView,
-} from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerContentScrollView } from "@react-navigation/drawer";
 
 import { MainLayout } from "../screens";
-import {
-    COLORS,
-    FONTS,
-    SIZES,
-    constants,
-    icons,
-    dummyData,
-} from "../constants";
+import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../constants";
 
 import Animated from "react-native-reanimated";
 import { connect } from "react-redux";
@@ -59,10 +49,7 @@ const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
 
 const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
     return (
-        <DrawerContentScrollView
-            scrollEnabled={true}
-            contentContainerStyle={{ flex: 1 }}
-        >
+        <DrawerContentScrollView scrollEnabled={true} contentContainerStyle={{ flex: 1 }}>
             <View
                 style={{
                     flex: 1,
@@ -198,25 +185,13 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
                         }}
                     ></View>
 
-                    <CustomDrawerItem
-                        label={constants.screens.notification}
-                        icon={icons.notification}
-                    ></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.notification} icon={icons.notification}></CustomDrawerItem>
 
-                    <CustomDrawerItem
-                        label={constants.screens.setting}
-                        icon={icons.setting}
-                    ></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.setting} icon={icons.setting}></CustomDrawerItem>
 
-                    <CustomDrawerItem
-                        label={constants.screens.invite}
-                        icon={icons.profile}
-                    ></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.invite} icon={icons.profile}></CustomDrawerItem>
 
-                    <CustomDrawerItem
-                        label={constants.screens.help}
-                        icon={icons.help}
-                    ></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.help} icon={icons.help}></CustomDrawerItem>
                 </View>
 
                 <View
@@ -224,10 +199,7 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
                         marginBottom: SIZES.padding,
                     }}
                 >
-                    <CustomDrawerItem
-                        label={constants.screens.logout}
-                        icon={icons.logout}
-                    ></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.logout} icon={icons.logout}></CustomDrawerItem>
                 </View>
             </View>
         </DrawerContentScrollView>
@@ -278,23 +250,10 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
                         setProgress(props.progress);
                     }, 0);
 
-                    return (
-                        <CustomDrawerContent
-                            navigation={props.navigation}
-                            selectedTab={selectedTab}
-                            setSelectedTab={setSelectedTab}
-                        />
-                    );
+                    return <CustomDrawerContent navigation={props.navigation} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />;
                 }}
             >
-                <Drawer.Screen name="MainLayout">
-                    {(props) => (
-                        <MainLayout
-                            {...props}
-                            drawerAnimationStyle={animatedStyle}
-                        />
-                    )}
-                </Drawer.Screen>
+                <Drawer.Screen name="MainLayout">{(props) => <MainLayout {...props} drawerAnimationStyle={animatedStyle} />}</Drawer.Screen>
             </Drawer.Navigator>
         </View>
     );
