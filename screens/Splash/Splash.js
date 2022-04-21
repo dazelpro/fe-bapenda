@@ -1,14 +1,7 @@
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, StatusBar } from "react-native";
 import React, { Component } from "react";
 import { StackActions } from "@react-navigation/native";
-import {
-    COLORS,
-    FONTS,
-    SIZES,
-    constants,
-    icons,
-    dummyData,
-} from "../../constants";
+import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../../constants";
 
 class Splash extends Component {
     constructor(props) {
@@ -24,42 +17,45 @@ class Splash extends Component {
 
     render() {
         return (
-            <View
-                style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor: COLORS.primary,
-                }}
-            >
-                <Image
-                    source={dummyData?.appProfile?.profile_image}
+            <>
+                <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
+                <View
                     style={{
-                        width: 100,
-                        height: 100,
-                    }}
-                ></Image>
-
-                <Text
-                    style={{
-                        marginTop: SIZES.padding,
-                        color: COLORS.white,
-                        ...FONTS.h3,
+                        flex: 1,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: COLORS.primary,
                     }}
                 >
-                    BADAN PENDAPATAN DAERAH
-                </Text>
+                    <Image
+                        source={dummyData?.appProfile?.profile_image}
+                        style={{
+                            width: 100,
+                            height: 100,
+                        }}
+                    ></Image>
 
-                <Text
-                    style={{
-                        marginTop: SIZES.base,
-                        color: COLORS.white,
-                        ...FONTS.h3,
-                    }}
-                >
-                    KOTA PADANG
-                </Text>
-            </View>
+                    <Text
+                        style={{
+                            marginTop: SIZES.padding,
+                            color: COLORS.white,
+                            ...FONTS.h3,
+                        }}
+                    >
+                        BADAN PENDAPATAN DAERAH
+                    </Text>
+
+                    <Text
+                        style={{
+                            marginTop: SIZES.base,
+                            color: COLORS.white,
+                            ...FONTS.h3,
+                        }}
+                    >
+                        KOTA PADANG
+                    </Text>
+                </View>
+            </>
         );
     }
 }

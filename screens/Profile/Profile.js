@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Share, View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../../constants";
 import { TextButton } from "../../components";

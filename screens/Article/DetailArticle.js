@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, StatusBar } from "react-native";
 
-import {
-    FONTS,
-    COLORS,
-    SIZES,
-    icons,
-    images,
-    dummyData,
-} from "../../constants";
+import { FONTS, COLORS, SIZES, icons, images, dummyData } from "../../constants";
 import { Header, IconButton } from "../../components";
 import { WebView } from "react-native-webview";
 import Loading from "../Loading/Loading";
@@ -71,31 +64,34 @@ const DetailArticle = ({ navigation }) => {
     }
 
     return (
-        <View
-            style={{
-                flex: 1,
-                backgroundColor: COLORS.white,
-            }}
-        >
-            {/* Header */}
-            {renderHeader()}
-
-            {/* Body */}
-            <WebView
-                source={{
-                    uri: "https://bapenda.padang.go.id/?p=1935",
-                }}
-                javaScriptEnabled={true}
+        <>
+            <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
+            <View
                 style={{
                     flex: 1,
+                    backgroundColor: COLORS.white,
                 }}
-                domStorageEnabled={true}
-                onLoadStart={() => setVisible(true)}
-                onLoad={() => setVisible(false)}
-            />
-            {visible ? <Loading /> : null}
-            {/* Footer */}
-        </View>
+            >
+                {/* Header */}
+                {renderHeader()}
+
+                {/* Body */}
+                <WebView
+                    source={{
+                        uri: "https://bapenda.padang.go.id/?p=1935",
+                    }}
+                    javaScriptEnabled={true}
+                    style={{
+                        flex: 1,
+                    }}
+                    domStorageEnabled={true}
+                    onLoadStart={() => setVisible(true)}
+                    onLoad={() => setVisible(false)}
+                />
+                {visible ? <Loading /> : null}
+                {/* Footer */}
+            </View>
+        </>
     );
 };
 
