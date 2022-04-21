@@ -1,24 +1,10 @@
 import React from "react";
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    Image,
-    TextInput,
-    FlatList,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image, TextInput, FlatList } from "react-native";
 
 import { FilterModal } from "../";
 import Loading from "../Loading/Loading";
 import { HorizontalArticle } from "../../components";
-import {
-    COLORS,
-    FONTS,
-    SIZES,
-    constants,
-    icons,
-    dummyData,
-} from "../../constants";
+import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../../constants";
 
 const Section = ({ title, onPress, children }) => {
     return (
@@ -72,24 +58,16 @@ const Home = ({ navigation }) => {
 
     function handleChangeCategory(categoryId, menuTypeId) {
         // Retrieve the recommended menu
-        let selectedRecommend = dummyData.menu.find(
-            (a) => a.name == "Recommended"
-        );
+        let selectedRecommend = dummyData.menu.find((a) => a.name == "Recommended");
 
         // Find the menu based on the menuTypeId
         let selectedMenu = dummyData.menu.find((a) => a.id == menuTypeId);
 
         // Set the recommended menu based on the categoryId
-        setRecommends(
-            selectedRecommend?.list.filter((a) =>
-                a.categories.includes(categoryId)
-            )
-        );
+        setRecommends(selectedRecommend?.list.filter((a) => a.categories.includes(categoryId)));
 
         // Set the menu based on the categoryId
-        setMenuList(
-            selectedMenu?.list.filter((a) => a.categories.includes(categoryId))
-        );
+        setMenuList(selectedMenu?.list.filter((a) => a.categories.includes(categoryId)));
     }
 
     // Render
@@ -176,10 +154,7 @@ const Home = ({ navigation }) => {
                     <TouchableOpacity
                         style={{
                             marginLeft: SIZES.padding,
-                            marginRight:
-                                index == dummyData.menu.length - 1
-                                    ? SIZES.padding
-                                    : 0,
+                            marginRight: index == dummyData.menu.length - 1 ? SIZES.padding : 0,
                         }}
                         onPress={() => {
                             setSelectedMenuType(item.id);
@@ -188,10 +163,7 @@ const Home = ({ navigation }) => {
                     >
                         <Text
                             style={{
-                                color:
-                                    selectedMenuType == item.id
-                                        ? COLORS.primary
-                                        : COLORS.black,
+                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
                                 ...FONTS.h3,
                             }}
                         >
@@ -206,10 +178,7 @@ const Home = ({ navigation }) => {
     function renderRecommendedSection() {
         return (
             <View>
-                <Section
-                    title="Recommended"
-                    onPress={() => navigation.navigate("RecommendedArticle")}
-                ></Section>
+                <Section title="Recommended" onPress={() => navigation.navigate("RecommendedArticle")}></Section>
 
                 <FlatList
                     data={recommends}
@@ -222,10 +191,7 @@ const Home = ({ navigation }) => {
                                 height: 150,
                                 width: SIZES.width * 0.85,
                                 marginLeft: index == 0 ? SIZES.padding : 18,
-                                marginRight:
-                                    index == recommends.length - 1
-                                        ? SIZES.padding
-                                        : 0,
+                                marginRight: index == recommends.length - 1 ? SIZES.padding : 0,
                                 paddingRight: SIZES.radius,
                                 alignItems: "center",
                             }}
@@ -257,18 +223,11 @@ const Home = ({ navigation }) => {
                             flexDirection: "row",
                             height: 55,
                             marginTop: SIZES.padding,
-                            marginLeft:
-                                index == 0 ? SIZES.padding : SIZES.radius,
-                            marginRight:
-                                index == dummyData.categories.length - 1
-                                    ? SIZES.padding
-                                    : 0,
+                            marginLeft: index == 0 ? SIZES.padding : SIZES.radius,
+                            marginRight: index == dummyData.categories.length - 1 ? SIZES.padding : 0,
                             paddingHorizontal: 8,
                             borderRadius: SIZES.radius,
-                            backgroundColor:
-                                selectedCategoryId == item.id
-                                    ? COLORS.primary
-                                    : COLORS.lightGray2,
+                            backgroundColor: selectedCategoryId == item.id ? COLORS.primary : COLORS.lightGray2,
                         }}
                         onPress={() => {
                             setSelectedCategoryId(item.id);
@@ -306,10 +265,7 @@ const Home = ({ navigation }) => {
                             style={{
                                 alignSelf: "center",
                                 marginRight: SIZES.base,
-                                color:
-                                    selectedCategoryId == item.id
-                                        ? COLORS.white
-                                        : COLORS.darkGray,
+                                color: selectedCategoryId == item.id ? COLORS.white : COLORS.darkGray,
                                 ...FONTS.h3,
                                 fontSize: 14,
                             }}
@@ -334,12 +290,7 @@ const Home = ({ navigation }) => {
                 {renderSearch()}
 
                 {/* Filter modal */}
-                {showFilterModal && (
-                    <FilterModal
-                        isVisible={showFilterModal}
-                        onRequestClose={() => setShowFilterModal(false)}
-                    />
-                )}
+                {showFilterModal && <FilterModal isVisible={showFilterModal} onRequestClose={() => setShowFilterModal(false)} />}
 
                 {/* SLider */}
                 {/* {renderSlider()} */}
@@ -378,9 +329,7 @@ const Home = ({ navigation }) => {
                                     width: 120,
                                 }}
                                 item={item}
-                                onPress={() =>
-                                    navigation.navigate("DetailArticle")
-                                }
+                                onPress={() => navigation.navigate("DetailArticle")}
                             ></HorizontalArticle>
                         );
                     }}
