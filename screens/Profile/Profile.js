@@ -1,9 +1,29 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import { Share, View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../../constants";
 import { TextButton } from "../../components";
 
 const Profile = ({ navigation }) => {
+    const onShare = async () => {
+        try {
+            const result = await Share.share({
+                message:
+                    "Ayo download aplikasi terbaru dari BAPENDA Kota Padang, dan dapatkan info serta event menarik untuk kamu! Buruan downlad di link berikut : https://bapenda.padang.go.id ",
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    };
+
     function renderHeader() {
         return (
             <View
@@ -79,8 +99,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -90,8 +110,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.edit}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -142,8 +162,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -153,8 +173,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.history}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -205,8 +225,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -216,8 +236,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.notification}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -268,8 +288,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -279,8 +299,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.setting}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -323,7 +343,7 @@ const Profile = ({ navigation }) => {
                             borderWidth: 1,
                             borderColor: COLORS.lightGray2,
                         }}
-                        onPress={() => console.log("Privacy")}
+                        onPress={() => onShare()}
                     >
                         <View
                             style={{
@@ -332,8 +352,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -343,8 +363,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.invite}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -407,8 +427,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -418,8 +438,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.contactus}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -471,8 +491,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -482,8 +502,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.privacy}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -535,8 +555,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -546,8 +566,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.term}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
@@ -599,8 +619,8 @@ const Profile = ({ navigation }) => {
                         >
                             <TouchableOpacity
                                 style={{
-                                    width: 50,
-                                    height: 50,
+                                    width: 40,
+                                    height: 40,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     borderRadius: SIZES.radius,
@@ -610,8 +630,8 @@ const Profile = ({ navigation }) => {
                                 <Image
                                     source={icons.star}
                                     style={{
-                                        width: 30,
-                                        height: 30,
+                                        width: 25,
+                                        height: 25,
                                         tintColor: COLORS.white,
                                     }}
                                 ></Image>
