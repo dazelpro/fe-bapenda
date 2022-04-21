@@ -379,7 +379,7 @@ const PrivacyPolice = ({ navigation }) => {
                                         marginTop: 10,
                                     }}
                                 >
-                                    Jika anda memiliki pertanyaan mengenai Badan Pendapatan Daerah Kota Padang silahkan hubungi bapenda@padang.go.id.
+                                    Untuk pertanyaan atau keluhan lainnya, anda dapat menghubungi kami melalui email atau telepon melalui kontak berikut :
                                 </Text>
                                 <Text
                                     style={{
@@ -387,7 +387,15 @@ const PrivacyPolice = ({ navigation }) => {
                                         marginTop: 10,
                                     }}
                                 >
-                                    Untuk pertanyaan atau keluhan lainnya, anda dapat menghubungi kami melalui email atau telepon melalui kontak berikut :
+                                    Email : bapenda@padang.go.id
+                                </Text>
+                                <Text
+                                    style={{
+                                        ...FONTS.body4,
+                                        marginTop: 10,
+                                    }}
+                                >
+                                    Telepon : 0813 6461 0909
                                 </Text>
                             </View>
                         </View>
