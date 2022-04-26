@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { Share, View, Text, Image, TouchableOpacity } from "react-native";
 import { createDrawerNavigator, DrawerContentScrollView } from "@react-navigation/drawer";
 
 import { MainLayout } from "../screens";
@@ -48,6 +48,26 @@ const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
 };
 
 const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
+    const onShare = async () => {
+        try {
+            const result = await Share.share({
+                message:
+                    "Ayo download aplikasi terbaru dari BAPENDA Kota Padang, dan dapatkan info serta event menarik untuk kamu! Buruan downlad di link berikut : https://bapenda.padang.go.id ",
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    };
+
     return (
         <DrawerContentScrollView scrollEnabled={true} contentContainerStyle={{ flex: 1 }}>
             <View
@@ -189,7 +209,7 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
 
                     <CustomDrawerItem label={constants.screens.setting} icon={icons.setting}></CustomDrawerItem>
 
-                    <CustomDrawerItem label={constants.screens.invite} icon={icons.profile}></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.invite} icon={icons.invite} onPress={() => onShare()}></CustomDrawerItem>
 
                     <CustomDrawerItem label={constants.screens.help} icon={icons.help}></CustomDrawerItem>
                 </View>

@@ -54,6 +54,16 @@ class Splash extends Component {
                     >
                         KOTA PADANG
                     </Text>
+
+                    <Text
+                        style={{
+                            marginTop: SIZES.padding,
+                            color: COLORS.white,
+                            ...FONTS.h3,
+                        }}
+                    >
+                        #BayialahPajak
+                    </Text>
                 </View>
             </>
         );

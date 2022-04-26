@@ -6,7 +6,7 @@ import { Header, IconButton } from "../../components";
 import { WebView } from "react-native-webview";
 import Loading from "../Loading/Loading";
 
-const PrivacyPolice = ({ navigation }) => {
+const ContactUs = ({ navigation }) => {
     const [visible, setVisible] = useState(true);
 
     setTimeout(() => {
@@ -409,4 +409,4 @@ const PrivacyPolice = ({ navigation }) => {
     );
 };
 
-export default PrivacyPolice;
+export default ContactUs;

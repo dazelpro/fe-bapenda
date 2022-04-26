@@ -3,12 +3,12 @@ const screens = {
     home: "Home",
     event: "Event",
     office: "Kantor",
-    notification: "Notification",
+    notification: "Notifikasi",
     article: "Article",
-    help: "Help Center",
-    setting: "Settings",
+    help: "Pusat Bantuan",
+    setting: "Pengaturan",
     logout: "Logout",
-    invite: "Invite a Friend",
+    invite: "Undang Teman",
     profile: "Profile",
 };
 
