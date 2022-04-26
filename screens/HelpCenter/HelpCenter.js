@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, ScrollView, StatusBar } from "react-native";
+import { View, Text, Image, ScrollView, StatusBar, TouchableOpacity } from "react-native";
 
 import { FONTS, COLORS, SIZES, icons, images, dummyData } from "../../constants";
 import { Header, IconButton } from "../../components";
@@ -121,282 +121,280 @@ const HelpCenter = ({ navigation }) => {
                                             color: COLORS.black,
                                         }}
                                     >
-                                        Privacy Police
+                                        Help Center
                                     </Text>
                                 </View>
                             </View>
+
                             <View
                                 style={{
-                                    padding: SIZES.padding,
+                                    height: 30,
+                                }}
+                            ></View>
+
+                            <View
+                                style={{
+                                    paddingHorizontal: SIZES.padding,
                                 }}
                             >
-                                <Text
+                                <TouchableOpacity
                                     style={{
-                                        ...FONTS.body4,
+                                        borderRadius: SIZES.radius,
+                                        padding: SIZES.base,
+                                        borderWidth: 1,
+                                        borderColor: COLORS.lightGray2,
                                     }}
+                                    onPress={() => console.log("Tes")}
                                 >
-                                    Kebijakan Privasi berikut ini menjelaskan bagaimana kami, Badan Pendapatan Daerah Kota Padang mengumpulkan, menyimpan,
-                                    menggunakan, mengolah, menguasai, mentransfer, mengungkapkan dan melindungi Informasi Pribadi anda. Kebijakan Privasi ini
-                                    berlaku bagi seluruh pengguna aplikasi-aplikasi, situs web (www.bapenda.padang.go.id), layanan, atau produk kami, kecuali
-                                    diatur pada kebijakan privasi yang terpisah.
-                                </Text>
-                                <Text
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <TouchableOpacity
+                                            style={{
+                                                width: 40,
+                                                height: 40,
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                borderRadius: SIZES.radius,
+                                                backgroundColor: COLORS.lightOrange2,
+                                            }}
+                                        >
+                                            <Image
+                                                source={icons.office}
+                                                style={{
+                                                    width: 25,
+                                                    height: 25,
+                                                    tintColor: COLORS.white,
+                                                }}
+                                            ></Image>
+                                        </TouchableOpacity>
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginHorizontal: SIZES.font,
+                                                alignSelf: "center",
+                                                ...FONTS.h4,
+                                            }}
+                                        >
+                                            Jam Operasional Kantor
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginLeft: 54,
+                                                marginRight: 5,
+                                                alignSelf: "center",
+                                                ...FONTS.body4,
+                                            }}
+                                        >
+                                            Anda dapat mengajukan pertanyaan atau keluhan dengan mendatangi langsung Kantor BAPENDA Kota Padang dengan alamat :
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginLeft: 54,
+                                                marginRight: 5,
+                                                alignSelf: "center",
+                                                ...FONTS.h4,
+                                            }}
+                                        >
+                                            Jl. Moh. Yamin No. 70, Kp. Jao, Kec. Padang Barat, Kota Padang (Balai Kota Padang Lama).
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginLeft: 54,
+                                                marginRight: 5,
+                                                marginTop: 20,
+                                                alignSelf: "center",
+                                                ...FONTS.body4,
+                                            }}
+                                        >
+                                            - Senin - Kamis <Text style={{ ...FONTS.h4 }}>(08.00 - 12.20)</Text> ||{" "}
+                                            <Text style={{ ...FONTS.h4 }}>(12.50 - 14.00)</Text>
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginLeft: 54,
+                                                marginRight: 5,
+                                                marginTop: 10,
+                                                alignSelf: "center",
+                                                ...FONTS.body4,
+                                            }}
+                                        >
+                                            - Jumat <Text style={{ ...FONTS.h4 }}>(08.00 - 12.20)</Text> || <Text style={{ ...FONTS.h4 }}>(13.20- 14.30)</Text>
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginLeft: 54,
+                                                marginRight: 5,
+                                                marginTop: 10,
+                                                alignSelf: "center",
+                                                ...FONTS.body4,
+                                            }}
+                                        >
+                                            - Sabtu - Minggu <Text style={{ ...FONTS.h4 }}>(Libur)</Text>
+                                        </Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+
+                            <View
+                                style={{
+                                    height: 15,
+                                }}
+                            ></View>
+
+                            <View
+                                style={{
+                                    paddingHorizontal: SIZES.padding,
+                                }}
+                            >
+                                <TouchableOpacity
                                     style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
+                                        borderRadius: SIZES.radius,
+                                        padding: SIZES.base,
+                                        borderWidth: 1,
+                                        borderColor: COLORS.lightGray2,
                                     }}
+                                    onPress={() => console.log("Tes")}
                                 >
-                                    Mohon baca Kebijakan Privasi ini dengan seksama untuk memastikan bahwa anda memahami bagaimana proses pengolahan data kami.
-                                    Kecuali didefinisikan lain, semua istilah dengan huruf kapital yang digunakan dalam Kebijakan Privasi ini memiliki arti yang
-                                    sama dengan yang tercantum dalam Ketentuan Layanan.
-                                </Text>
-                                <Text
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <TouchableOpacity
+                                            style={{
+                                                width: 40,
+                                                height: 40,
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                borderRadius: SIZES.radius,
+                                                backgroundColor: COLORS.lightOrange2,
+                                            }}
+                                        >
+                                            <Image
+                                                source={icons.office}
+                                                style={{
+                                                    width: 25,
+                                                    height: 25,
+                                                    tintColor: COLORS.white,
+                                                }}
+                                            ></Image>
+                                        </TouchableOpacity>
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginHorizontal: SIZES.font,
+                                                alignSelf: "center",
+                                                ...FONTS.h4,
+                                            }}
+                                        >
+                                            <Text style={{ ...FONTS.body4 }}>Email : </Text> bapenda@padang.go.id
+                                        </Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+
+                            <View
+                                style={{
+                                    height: 15,
+                                }}
+                            ></View>
+
+                            <View
+                                style={{
+                                    paddingHorizontal: SIZES.padding,
+                                }}
+                            >
+                                <TouchableOpacity
                                     style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
+                                        borderRadius: SIZES.radius,
+                                        padding: SIZES.base,
+                                        borderWidth: 1,
+                                        borderColor: COLORS.lightGray2,
                                     }}
+                                    onPress={() => console.log("Tes")}
                                 >
-                                    Kebijakan Privasi ini mencakup hal-hal sebagai berikut :
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    1. Informasi Pribadi yang kami kumpulkan
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    2. Penggunaan Informasi Pribadi yang kami kumpulkan
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    3. Tempat menyimpan Informasi Pribadi anda
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    4. Keamanan Informasi Pribadi anda
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    5. Perubahan Kebijakan Privasi ini
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    6. Cara menghubungi kami
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.h4,
-                                        marginTop: 30,
-                                    }}
-                                >
-                                    1. INFORMASI PRIBADI YANG KAMI KUMPULKAN
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Kami mengumpulkan informasi yang mengidentifikasikan atau dapat digunakan untuk mengidentifikasi, menghubungi, atau
-                                    menemukan orang atau perangkat yang terkait dengan informasi tersebut ("Informasi Pribadi"). Informasi Pribadi termasuk,
-                                    tetapi tidak terbatas pada, nama, alamat, tanggal lahir, pekerjaan, nomor telepon, alamat e-mail, jenis kelamin, atau tanda
-                                    pengenal lainnya. Selain itu, untuk informasi lainnya, seperti profil pribadi, dan/atau nomor pengenal unik, yang dikaitkan
-                                    atau digabungkan dengan Informasi Pribadi, maka informasi tersebut juga dianggap sebagai Informasi Pribadi.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Informasi Pribadi yang kami kumpulkan dapat diberikan oleh anda secara langsung atau oleh pihak ketiga (misalnya: ketika
-                                    anda mendaftar atau menggunakan Aplikasi, ketika anda menghubungi layanan pelanggan kami, atau sebaliknya ketika anda
-                                    memberikan Informasi Pribadi kepada kami). Kami dapat mengumpulkan informasi dalam berbagai macam bentuk dan tujuan
-                                    (termasuk tujuan yang diizinkan berdasarkan peraturan perundang-undangan yang berlaku).
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.h4,
-                                        marginTop: 30,
-                                    }}
-                                >
-                                    2. PENGGUNAAN INFORMASI PRIBADI YANG KAMI KUMPULKAN
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Kami dapat menggunakan Informasi Pribadi yang dikumpulkan untuk tujuan sebagai berikut maupun untuk tujuan lain yang
-                                    diizinkan oleh peraturan perundang-undangan yang berlaku :
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Kami dapat menggunakan Informasi Pribadi anda :
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    1. Untuk mengidentifikasi dan mendaftarkan anda sebagai pengguna dan untuk mengadministrasikan, memverifikasi,
-                                    menonaktifkan, atau mengelola akun anda.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    2. Untuk memungkinkan penyedia layanan untuk menyediakan layanan yang anda minta.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    3. Untuk berkomunikasi dengan anda dan mengirimkan anda informasi sehubungan dengan penggunaan Aplikasi.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    4. Untuk memberitahu anda mengenai segala pembaruan pada Aplikasi atau perubahan pada layanan yang disediakan.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    5. Untuk mengolah dan menanggapi pertanyaan dan saran yang diterima dari anda.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.h4,
-                                        marginTop: 30,
-                                    }}
-                                >
-                                    3. TEMPAT KAMI MENYIMPAN INFORMASI PRIBADI ANDA
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Informasi Pribadi dari anda yang kami kumpulkan dapat disimpan, ditransfer, atau diolah didalam server kami sendiri. Kami
-                                    akan menggunakan semua upaya yang wajar untuk memastikan bahwa server kami dapat memberikan tingkat perlindungan yang
-                                    sebanding dengan komitmen kami berdasarkan Kebijakan Privasi ini.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.h4,
-                                        marginTop: 30,
-                                    }}
-                                >
-                                    4. KEAMANAN INFORMASI PRIBADI ANDA
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Kami akan memberlakukan upaya terbaik untuk melindungi dan mengamankan data dan Informasi Pribadi anda dari akses,
-                                    pengumpulan, penggunaan atau pengungkapan oleh orang-orang yang tidak berwenang dan dari pengolahan yang bertentangan dengan
-                                    hukum, kehilangan yang tidak disengaja, pemusnahan dan kerusakan atau risiko serupa. Namun, pengiriman informasi melalui
-                                    internet tidak sepenuhnya aman. Walau kami akan berusaha sebaik mungkin untuk melindungi Informasi Pribadi anda, anda
-                                    mengakui bahwa kami tidak dapat menjamin keutuhan dan keakuratan Informasi Pribadi apa pun yang anda kirimkan melalui
-                                    Internet, atau menjamin bahwa Informasi Pribadi tersebut tidak akan dicegat, diakses, diungkapkan, diubah atau dihancurkan
-                                    oleh pihak ketiga yang tidak berwenang, karena faktor-faktor di luar kendali kami. Anda bertanggung jawab untuk menjaga
-                                    kerahasiaan detail Akun anda, termasuk kata sandi anda dengan siapapun dan harus selalu menjaga dan bertanggung jawab atas
-                                    keamanan perangkat yang anda gunakan.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.h4,
-                                        marginTop: 30,
-                                    }}
-                                >
-                                    5. PERUBAHAN ATAS KEBIJAKAN PRIVASI INI
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Kami dapat meninjau dan mengubah Kebijakan Privasi ini atas kebijakan kami sendiri dari waktu ke waktu, untuk memastikan
-                                    bahwa Kebijakan Privasi ini konsisten dengan perkembangan kami di masa depan, dan/atau perubahan persyaratan hukum atau
-                                    peraturan. Jika kami memutuskan untuk mengubah Kebijakan Privasi ini, kami akan memberitahu anda tentang perubahan tersebut
-                                    melalui pemberitahuan umum yang dipublikasikan pada Aplikasi dan/atau situs web, atau sebaliknya ke alamat e-mail anda yang
-                                    tercantum dalam Akun anda.
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.h4,
-                                        marginTop: 30,
-                                    }}
-                                >
-                                    6. CARA UNTUK MENGHUBUNGI KAMI
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Untuk pertanyaan atau keluhan lainnya, anda dapat menghubungi kami melalui email atau telepon melalui kontak berikut :
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Email : bapenda@padang.go.id
-                                </Text>
-                                <Text
-                                    style={{
-                                        ...FONTS.body4,
-                                        marginTop: 10,
-                                    }}
-                                >
-                                    Telepon : 0813 6461 0909
-                                </Text>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}
+                                    >
+                                        <TouchableOpacity
+                                            style={{
+                                                width: 40,
+                                                height: 40,
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                borderRadius: SIZES.radius,
+                                                backgroundColor: COLORS.lightOrange2,
+                                            }}
+                                        >
+                                            <Image
+                                                source={icons.office}
+                                                style={{
+                                                    width: 25,
+                                                    height: 25,
+                                                    tintColor: COLORS.white,
+                                                }}
+                                            ></Image>
+                                        </TouchableOpacity>
+                                        <Text
+                                            style={{
+                                                color: COLORS.transparentBlack7,
+                                                flex: 1,
+                                                marginHorizontal: SIZES.font,
+                                                alignSelf: "center",
+                                                ...FONTS.h4,
+                                            }}
+                                        >
+                                            <Text style={{ ...FONTS.body4 }}>Telepon : </Text> 0813 6461 0909
+                                        </Text>
+                                    </View>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     ) : null}
