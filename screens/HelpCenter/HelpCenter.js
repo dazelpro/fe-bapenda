@@ -6,7 +6,7 @@ import { Header, IconButton } from "../../components";
 import { WebView } from "react-native-webview";
 import Loading from "../Loading/Loading";
 
-const ContactUs = ({ navigation }) => {
+const HelpCenter = ({ navigation }) => {
     const [visible, setVisible] = useState(true);
 
     setTimeout(() => {
@@ -16,7 +16,7 @@ const ContactUs = ({ navigation }) => {
     function renderHeader() {
         return (
             <Header
-                title="Kebijakan Privasi"
+                title="Pusat Bantuan"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
@@ -409,4 +409,4 @@ const ContactUs = ({ navigation }) => {
     );
 };
 
-export default ContactUs;
+export default HelpCenter;

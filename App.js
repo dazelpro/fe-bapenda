@@ -22,6 +22,7 @@ import {
     PajakParkir,
     PajakHotel,
     PajakBumiBangunan,
+    HelpCenter,
     PrivacyPolice,
     UnderConstruction,
 } from "./screens";
@@ -54,6 +55,7 @@ const App = () => {
                     <Stack.Screen name="PajakPeneranganJalan" component={PajakPeneranganJalan} />
                     <Stack.Screen name="PajakParkir" component={PajakParkir} />
                     <Stack.Screen name="PajakHotel" component={PajakHotel} />
+                    <Stack.Screen name="HelpCenter" component={HelpCenter} />
                     <Stack.Screen name="PrivacyPolice" component={PrivacyPolice} />
                     <Stack.Screen name="UnderConstruction" component={UnderConstruction} />
                 </Stack.Navigator>

@@ -57,8 +57,8 @@ import PajakParkir from "./Pajak/PajakParkir";
 // Pajak Hotel
 import PajakHotel from "./Pajak/PajakHotel";
 
-// Contact Us
-import ContactUs from "./ContactUs/ContactUs";
+// Help Center
+import HelpCenter from "./HelpCenter/HelpCenter";
 
 // Privacy Police
 import PrivacyPolice from "./PrivacyPolice/PrivacyPolice";
@@ -87,7 +87,7 @@ export {
     PajakPeneranganJalan,
     PajakParkir,
     PajakHotel,
-    ContactUs,
+    HelpCenter,
     PrivacyPolice,
     UnderConstruction,
 };

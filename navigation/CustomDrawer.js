@@ -211,7 +211,7 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
 
                     <CustomDrawerItem label={constants.screens.invite} icon={icons.invite} onPress={() => onShare()}></CustomDrawerItem>
 
-                    <CustomDrawerItem label={constants.screens.help} icon={icons.help}></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.help} icon={icons.contactus}></CustomDrawerItem>
                 </View>
 
                 <View

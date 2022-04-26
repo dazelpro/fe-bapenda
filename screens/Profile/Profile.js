@@ -418,7 +418,7 @@ const Profile = ({ navigation }) => {
                             borderWidth: 1,
                             borderColor: COLORS.lightGray2,
                         }}
-                        onPress={() => console.log("Privacy")}
+                        onPress={() => navigation.navigate("HelpCenter")}
                     >
                         <View
                             style={{
@@ -453,7 +453,7 @@ const Profile = ({ navigation }) => {
                                     ...FONTS.h4,
                                 }}
                             >
-                                Hubungi Kami
+                                Pusat Bantuan
                             </Text>
                             <Image
                                 style={{
