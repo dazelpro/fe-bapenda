@@ -205,9 +205,17 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
                         }}
                     ></View>
 
-                    <CustomDrawerItem label={constants.screens.notification} icon={icons.notification}></CustomDrawerItem>
+                    <CustomDrawerItem
+                        label={constants.screens.notification}
+                        icon={icons.notification}
+                        onPress={() => navigation.navigate("UnderConstruction")}
+                    ></CustomDrawerItem>
 
-                    <CustomDrawerItem label={constants.screens.setting} icon={icons.setting}></CustomDrawerItem>
+                    <CustomDrawerItem
+                        label={constants.screens.setting}
+                        icon={icons.setting}
+                        onPress={() => navigation.navigate("UnderConstruction")}
+                    ></CustomDrawerItem>
 
                     <CustomDrawerItem label={constants.screens.invite} icon={icons.invite} onPress={() => onShare()}></CustomDrawerItem>
 
