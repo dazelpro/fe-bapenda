@@ -56,7 +56,7 @@ const DetailArticle = ({ navigation }) => {
                             height: 20,
                             tintColor: COLORS.gray2,
                         }}
-                        onPress={() => navigation.goBack()}
+                        onPress={() => navigation.navigate("HelpCenter")}
                     ></IconButton>
                 }
             ></Header>

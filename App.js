@@ -26,6 +26,7 @@ import {
     PrivacyPolice,
     UnderConstruction,
     Map,
+    TermOfService,
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -58,6 +59,7 @@ const App = () => {
                     <Stack.Screen name="PajakHotel" component={PajakHotel} />
                     <Stack.Screen name="HelpCenter" component={HelpCenter} />
                     <Stack.Screen name="PrivacyPolice" component={PrivacyPolice} />
+                    <Stack.Screen name="TermOfService" component={TermOfService} />
                     <Stack.Screen name="Map" component={Map} />
                     <Stack.Screen name="UnderConstruction" component={UnderConstruction} />
                 </Stack.Navigator>

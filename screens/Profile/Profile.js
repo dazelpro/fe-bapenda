@@ -546,7 +546,7 @@ const Profile = ({ navigation }) => {
                             borderWidth: 1,
                             borderColor: COLORS.lightGray2,
                         }}
-                        onPress={() => console.log("Privacy")}
+                        onPress={() => navigation.navigate("TermOfService")}
                     >
                         <View
                             style={{
@@ -562,6 +562,7 @@ const Profile = ({ navigation }) => {
                                     borderRadius: SIZES.radius,
                                     backgroundColor: COLORS.lightOrange2,
                                 }}
+                                onPress={() => navigation.navigate("TermOfService")}
                             >
                                 <Image
                                     source={icons.term}
@@ -601,7 +602,7 @@ const Profile = ({ navigation }) => {
                         }}
                     ></View>
 
-                    {/* Terms of Services */}
+                    {/* Rating Kami */}
                     <TouchableOpacity
                         style={{
                             marginHorizontal: SIZES.padding,
@@ -626,6 +627,7 @@ const Profile = ({ navigation }) => {
                                     borderRadius: SIZES.radius,
                                     backgroundColor: COLORS.lightOrange2,
                                 }}
+                                onPress={() => navigation.navigate("UnderConstruction")}
                             >
                                 <Image
                                     source={icons.star}
@@ -681,7 +683,7 @@ const Profile = ({ navigation }) => {
                     <Text
                         style={{
                             marginTop: 10,
-                            ...FONTS.h4,
+                            ...FONTS.body4,
                         }}
                     >
                         Versi 1.0.1
