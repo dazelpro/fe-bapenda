@@ -14,7 +14,7 @@ const categories = [
     {
         id: 1,
         name: "Pajak Bumi Bangunan",
-        icon: icons.burger,
+        icon: icons.world,
     },
     {
         id: 2,
@@ -24,7 +24,7 @@ const categories = [
     {
         id: 3,
         name: "Pajak Hiburan",
-        icon: icons.cherry,
+        icon: icons.disco,
     },
     {
         id: 4,
@@ -34,17 +34,17 @@ const categories = [
     {
         id: 5,
         name: "Pajak Penerangan Jalan",
-        icon: icons.rice,
+        icon: icons.lighting,
     },
     {
         id: 6,
         name: "Pajak Parkir",
-        icon: icons.rice,
+        icon: icons.parking,
     },
     {
         id: 7,
         name: "Pajak Hotel",
-        icon: icons.rice,
+        icon: icons.hotel,
     },
 ];
 
@@ -62,8 +62,7 @@ const articlesatu = {
 const articledua = {
     id: 2,
     name: "Target PAD Rp. 880 Miliar",
-    description:
-        "Target PAD Rp. 880 Miliar, Pemko Padang Tingkatkan Kualitas 280 Petugas Pajak",
+    description: "Target PAD Rp. 880 Miliar, Pemko Padang Tingkatkan Kualitas 280 Petugas Pajak",
     categories: [1, 2, 3, 6],
     date: "24 February 2021",
     calories: 78,

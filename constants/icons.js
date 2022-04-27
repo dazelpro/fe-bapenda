@@ -38,6 +38,11 @@ const edit = require("../assets/icons/edit.png");
 const history = require("../assets/icons/history.png");
 const underconstruction = require("../assets/icons/underconstruction.png");
 const email = require("../assets/icons/email.png");
+const world = require("../assets/icons/world.png");
+const disco = require("../assets/icons/disco.png");
+const lighting = require("../assets/icons/lighting.png");
+const parking = require("../assets/icons/parking.png");
+const hotel = require("../assets/icons/hotel.png");
 
 export default {
     coupon,
@@ -80,4 +85,9 @@ export default {
     history,
     underconstruction,
     email,
+    world,
+    disco,
+    lighting,
+    parking,
+    hotel,
 };
