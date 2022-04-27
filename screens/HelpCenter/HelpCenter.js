@@ -45,7 +45,7 @@ const HelpCenter = ({ navigation }) => {
                 }
                 rightComponent={
                     <IconButton
-                        icon={icons.callcenter}
+                        icon={icons.location}
                         containerStyle={{
                             width: 40,
                             height: 40,
@@ -60,7 +60,7 @@ const HelpCenter = ({ navigation }) => {
                             height: 20,
                             tintColor: COLORS.gray2,
                         }}
-                        onPress={() => navigation.goBack()}
+                        onPress={() => navigation.navigate("Map")}
                     ></IconButton>
                 }
             ></Header>
@@ -315,7 +315,7 @@ const HelpCenter = ({ navigation }) => {
                                             }}
                                         >
                                             <Image
-                                                source={icons.office}
+                                                source={icons.email}
                                                 style={{
                                                     width: 25,
                                                     height: 25,
@@ -374,7 +374,7 @@ const HelpCenter = ({ navigation }) => {
                                             }}
                                         >
                                             <Image
-                                                source={icons.office}
+                                                source={icons.call}
                                                 style={{
                                                     width: 25,
                                                     height: 25,

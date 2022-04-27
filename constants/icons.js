@@ -37,6 +37,7 @@ const invite = require("../assets/icons/invite.png");
 const edit = require("../assets/icons/edit.png");
 const history = require("../assets/icons/history.png");
 const underconstruction = require("../assets/icons/underconstruction.png");
+const email = require("../assets/icons/email.png");
 
 export default {
     coupon,
@@ -78,4 +79,5 @@ export default {
     edit,
     history,
     underconstruction,
+    email,
 };

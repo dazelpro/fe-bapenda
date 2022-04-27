@@ -63,6 +63,9 @@ import HelpCenter from "./HelpCenter/HelpCenter";
 // Privacy Police
 import PrivacyPolice from "./PrivacyPolice/PrivacyPolice";
 
+// Map
+import Map from "./Map/Map";
+
 // Under Construction
 import UnderConstruction from "./UnderConstruction/UnderConstruction";
 
@@ -89,5 +92,6 @@ export {
     PajakHotel,
     HelpCenter,
     PrivacyPolice,
+    Map,
     UnderConstruction,
 };
