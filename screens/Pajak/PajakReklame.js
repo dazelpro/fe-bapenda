@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 
-import {
-    FONTS,
-    COLORS,
-    SIZES,
-    icons,
-    images,
-    dummyData,
-} from "../../constants";
+import { FONTS, COLORS, SIZES, icons, images, dummyData } from "../../constants";
 import { Header, IconButton, TextButton } from "../../components";
 import { WebView } from "react-native-webview";
 import Loading from "../Loading/Loading";
@@ -70,32 +63,6 @@ const PajakReklame = ({ navigation }) => {
         );
     }
 
-    function renderFooter() {
-        return (
-            <View
-                style={{
-                    height: 80,
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    paddingHorizontal: SIZES.largeTitle,
-                    paddingVertical: SIZES.font,
-                }}
-            >
-                <TextButton
-                    buttonContainerStyle={{
-                        flex: 1,
-                        borderRadius: SIZES.radius,
-                        backgroundColor: COLORS.primary,
-                    }}
-                    label="Cek Pajak Anda"
-                    onPress={() => navigation.navigate("Check")}
-                ></TextButton>
-            </View>
-        );
-    }
-
     return (
         <View
             style={{
@@ -120,9 +87,6 @@ const PajakReklame = ({ navigation }) => {
                 onLoad={() => setVisible(false)}
             />
             {visible ? <Loading /> : null}
-
-            {/* Footer */}
-            {renderFooter()}
         </View>
     );
 };

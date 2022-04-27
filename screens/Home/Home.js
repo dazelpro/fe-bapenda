@@ -34,7 +34,7 @@ const Section = ({ title, onPress, children }) => {
                             ...FONTS.body3,
                         }}
                     >
-                        Show All
+                        Lihat Semua
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -178,7 +178,7 @@ const Home = ({ navigation }) => {
     function renderRecommendedSection() {
         return (
             <View>
-                <Section title="Recommended" onPress={() => navigation.navigate("RecommendedArticle")}></Section>
+                <Section title="Rekomendasi" onPress={() => navigation.navigate("RecommendedArticle")}></Section>
 
                 <FlatList
                     data={recommends}

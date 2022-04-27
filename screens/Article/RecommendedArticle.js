@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 
-import {
-    FONTS,
-    COLORS,
-    SIZES,
-    icons,
-    images,
-    dummyData,
-} from "../../constants";
+import { FONTS, COLORS, SIZES, icons, images, dummyData } from "../../constants";
 import { Header, IconButton } from "../../components";
 import { WebView } from "react-native-webview";
 import Loading from "../Loading/Loading";
@@ -62,7 +55,7 @@ const RecommendedArticle = ({ navigation }) => {
                             height: 20,
                             tintColor: COLORS.gray2,
                         }}
-                        onPress={() => navigation.goBack()}
+                        onPress={() => navigation.navigate("HelpCenter")}
                     ></IconButton>
                 }
             ></Header>
