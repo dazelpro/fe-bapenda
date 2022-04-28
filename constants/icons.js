@@ -43,6 +43,9 @@ const disco = require("../assets/icons/disco.png");
 const lighting = require("../assets/icons/lighting.png");
 const parking = require("../assets/icons/parking.png");
 const hotel = require("../assets/icons/hotel.png");
+const correct = require("../assets/icons/correct.png");
+const eye = require("../assets/icons/eye.png");
+const eye_close = require("../assets/icons/eye_close.png");
 
 export default {
     coupon,
@@ -90,4 +93,7 @@ export default {
     lighting,
     parking,
     hotel,
+    correct,
+    eye,
+    eye_close,
 };
