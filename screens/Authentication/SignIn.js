@@ -6,6 +6,7 @@ import { Header, IconButton } from "../../components";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Loading from "../Loading/Loading";
 import { FormInput } from "../../components";
+import { utils } from "../../utils";
 
 const SignIn = ({ navigation }) => {
     const [email, setEmail] = React.useState("");
@@ -127,6 +128,7 @@ const SignIn = ({ navigation }) => {
                             autoCompleteType="email"
                             onChange={(value) => {
                                 // Validate email
+                                utils.validateEmail(value, setEmailError);
                                 setEmail(value);
                             }}
                             errorMsg={emailError}
@@ -137,11 +139,11 @@ const SignIn = ({ navigation }) => {
                                     }}
                                 >
                                     <Image
-                                        source={icons.correct}
+                                        source={email == "" || (email != "" && emailError == "") ? icons.correct : icons.cancel}
                                         style={{
                                             height: 20,
                                             width: 20,
-                                            tintColor: COLORS.green,
+                                            tintColor: email == "" ? COLORS.gray : email != "" && emailError == "" ? COLORS.green : COLORS.red,
                                         }}
                                     ></Image>
                                 </View>
