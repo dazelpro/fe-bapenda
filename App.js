@@ -12,6 +12,9 @@ import {
     Splash,
     DetailArticle,
     Home,
+    OnBoarding,
+    SignIn,
+    SignUp,
     Article,
     RecommendedArticle,
     Check,
@@ -46,6 +49,9 @@ const App = () => {
                     <Stack.Screen name="MainLayout" component={CustomDrawer} />
                     <Stack.Screen name="Splash" component={Splash} />
                     <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="OnBoarding" component={OnBoarding} />
+                    <Stack.Screen name="SignIn" component={SignIn} />
+                    <Stack.Screen name="SignUp" component={SignUp} />
                     <Stack.Screen name="Article" component={Article} />
                     <Stack.Screen name="DetailArticle" component={DetailArticle} />
                     <Stack.Screen name="RecommendedArticle" component={RecommendedArticle} />

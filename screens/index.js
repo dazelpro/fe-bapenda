@@ -9,6 +9,15 @@ import Home from "./Home/Home";
 // Filter Modal
 import FilterModal from "./Home/FilterModal";
 
+// On Boarding
+import OnBoarding from "./OnBoarding/OnBoarding";
+
+// Sign In
+import SignIn from "./Authentication/SignIn";
+
+// Sign Up
+import SignUp from "./Authentication/SignUp";
+
 // Article
 import Article from "./Article/Article";
 
@@ -77,6 +86,9 @@ export {
     Splash,
     Home,
     FilterModal,
+    OnBoarding,
+    SignIn,
+    SignUp,
     Article,
     DetailArticle,
     Event,

@@ -231,7 +231,7 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
                         marginBottom: SIZES.padding,
                     }}
                 >
-                    <CustomDrawerItem label={constants.screens.logout} icon={icons.logout}></CustomDrawerItem>
+                    <CustomDrawerItem label={constants.screens.logout} icon={icons.logout} onPress={() => navigation.navigate("SignIn")}></CustomDrawerItem>
                 </View>
             </View>
         </DrawerContentScrollView>
