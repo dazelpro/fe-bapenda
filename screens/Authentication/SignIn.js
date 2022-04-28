@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, ScrollView, StatusBar, TouchableOpacity } from "react-native";
 
 import { FONTS, COLORS, SIZES, icons, images, dummyData } from "../../constants";
-import { Header, IconButton } from "../../components";
+import { Header, IconButton, TextButton } from "../../components";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Loading from "../Loading/Loading";
 import { FormInput } from "../../components";
@@ -14,6 +14,10 @@ const SignIn = ({ navigation }) => {
     const [emailError, setEmailError] = React.useState("");
 
     const [showPass, setShowPass] = React.useState(false);
+
+    function isEnableSignIn() {
+        return email != "" && password != "" && emailError == "";
+    }
 
     function renderHeader() {
         return (
@@ -178,11 +182,71 @@ const SignIn = ({ navigation }) => {
                                 </TouchableOpacity>
                             }
                         ></FormInput>
+
                         {/* Forgot Password */}
+                        <View
+                            style={{
+                                flexDirection: "row",
+                                marginTop: SIZES.radius,
+                                justifyContent: "flex-end",
+                            }}
+                        >
+                            <TextButton
+                                label="Lupa Password"
+                                buttonContainerStyle={{
+                                    backgroundColor: null,
+                                }}
+                                labelStyle={{
+                                    color: COLORS.gray,
+                                    ...FONTS.body4,
+                                }}
+                                onPress={() => console.log("Forgot Password")}
+                            ></TextButton>
+                        </View>
 
                         {/* Sign In */}
+                        <TextButton
+                            label="Masuk"
+                            disabled={isEnableSignIn() ? false : true}
+                            buttonContainerStyle={{
+                                height: 55,
+                                alignItems: "center",
+                                marginTop: SIZES.padding,
+                                borderRadius: SIZES.radius,
+                                backgroundColor: isEnableSignIn() ? COLORS.primary : COLORS.lightOrange2,
+                            }}
+                        ></TextButton>
 
                         {/* Sign Up */}
+                        <View
+                            style={{
+                                flexDirection: "row",
+                                marginTop: SIZES.padding,
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    color: COLORS.darkGray,
+                                    ...FONTS.body4,
+                                }}
+                            >
+                                Belum punya akun?
+                            </Text>
+
+                            <TextButton
+                                label="Daftar disini"
+                                buttonContainerStyle={{
+                                    backgroundColor: null,
+                                    marginLeft: 2,
+                                }}
+                                labelStyle={{
+                                    color: COLORS.primary,
+                                    ...FONTS.h4,
+                                }}
+                                onPress={() => navigation.navigate("SignUp")}
+                            ></TextButton>
+                        </View>
                     </View>
                 </KeyboardAwareScrollView>
             </View>
