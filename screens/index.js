@@ -18,6 +18,9 @@ import SignIn from "./Authentication/SignIn";
 // Sign Up
 import SignUp from "./Authentication/SignUp";
 
+// Forgot Password
+import ForgotPassword from "./Authentication/ForgotPassword";
+
 // Article
 import Article from "./Article/Article";
 
@@ -89,6 +92,7 @@ export {
     OnBoarding,
     SignIn,
     SignUp,
+    ForgotPassword,
     Article,
     DetailArticle,
     Event,

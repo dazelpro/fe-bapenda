@@ -30,6 +30,7 @@ import {
     UnderConstruction,
     Map,
     TermOfService,
+    ForgotPassword,
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -52,6 +53,7 @@ const App = () => {
                     <Stack.Screen name="OnBoarding" component={OnBoarding} />
                     <Stack.Screen name="SignIn" component={SignIn} />
                     <Stack.Screen name="SignUp" component={SignUp} />
+                    <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
                     <Stack.Screen name="Article" component={Article} />
                     <Stack.Screen name="DetailArticle" component={DetailArticle} />
                     <Stack.Screen name="RecommendedArticle" component={RecommendedArticle} />

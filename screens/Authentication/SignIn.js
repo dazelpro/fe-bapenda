@@ -207,7 +207,7 @@ const SignIn = ({ navigation }) => {
                                         color: COLORS.gray,
                                         ...FONTS.body4,
                                     }}
-                                    onPress={() => console.log("Forgot Password")}
+                                    onPress={() => navigation.navigate("ForgotPassword")}
                                 ></TextButton>
                             </View>
 
@@ -254,33 +254,37 @@ const SignIn = ({ navigation }) => {
                                     onPress={() => navigation.navigate("SignUp")}
                                 ></TextButton>
                             </View>
-                        </View>
 
-                        {/* Footer */}
-                        <View>
-                            {/* Google */}
-                            <TextIconButton
-                                containerStyle={{
-                                    height: 50,
-                                    marginBottom: SIZES.base,
-                                    alignItems: "center",
-                                    borderRadius: SIZES.radius,
-                                    backgroundColor: COLORS.lightGray2,
+                            {/* Footer */}
+                            <View
+                                style={{
+                                    marginTop: SIZES.padding,
                                 }}
-                                icon={icons.google}
-                                iconStyle={{
-                                    marginLeft: 5,
-                                    width: 20,
-                                    height: 20,
-                                    // tintColor: null,
-                                }}
-                                iconPosition="LEFT"
-                                label="Continue With Google"
-                                labelStyle={{
-                                    marginLeft: SIZES.radius,
-                                }}
-                                onPress={() => console.log("Google")}
-                            ></TextIconButton>
+                            >
+                                {/* Google */}
+                                <TextIconButton
+                                    containerStyle={{
+                                        height: 50,
+                                        marginBottom: SIZES.base,
+                                        alignItems: "center",
+                                        borderRadius: SIZES.radius,
+                                        backgroundColor: COLORS.lightGray2,
+                                    }}
+                                    icon={icons.google}
+                                    iconStyle={{
+                                        marginLeft: 5,
+                                        width: 20,
+                                        height: 20,
+                                        // tintColor: null,
+                                    }}
+                                    iconPosition="LEFT"
+                                    label="Continue With Google"
+                                    labelStyle={{
+                                        marginLeft: SIZES.radius,
+                                    }}
+                                    onPress={() => navigation.navigate("UnderConstruction")}
+                                ></TextIconButton>
+                            </View>
                         </View>
                     </KeyboardAwareScrollView>
                 ) : null}
