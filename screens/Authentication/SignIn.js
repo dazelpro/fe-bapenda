@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, Image, StatusBar, TouchableOpacity, Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import jwt_decode from "jwt-decode";
 
 import { FONTS, COLORS, SIZES, icons } from "../../constants";
 import { apiService } from "../../api";
@@ -36,7 +38,11 @@ const SignIn = ({ navigation }) => {
             })
                 .then((response) => response.json())
                 .then((json) => {
-                    json.success == true ? Alert.alert("Sukses", json.message) : Alert.alert("Data gagal disimpan");
+                    if (json.success == true) {
+                        // AsyncStorage.setItem("session_email", email);
+                        // AsyncStorage.setItem("session_name", email);
+                        console.log(jwt_decode(json.token));
+                    }
                 })
                 .catch((err) => console.log(err));
         } catch (err) {
