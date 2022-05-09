@@ -64,6 +64,7 @@ const FormInput = ({
                     style={{
                         flex: 1,
                         ...inputStyle,
+                        color: COLORS.black,
                     }}
                     placeholder={placeholder}
                     placeholderTextColor={COLORS.gray}

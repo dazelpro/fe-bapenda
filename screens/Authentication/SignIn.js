@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, Image, StatusBar, TouchableOpacity } from "react-native";
+import { View, Text, Image, StatusBar, TouchableOpacity, Alert } from "react-native";
 
 import { FONTS, COLORS, SIZES, icons } from "../../constants";
+import { apiService } from "../../api";
 import { Header, IconButton, TextButton, TextIconButton } from "../../components";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Loading from "../Loading/Loading";
@@ -18,6 +19,29 @@ const SignIn = ({ navigation }) => {
 
     function isEnableSignIn() {
         return email != "" && password != "" && emailError == "";
+    }
+
+    function login() {
+        try {
+            fetch(apiService.login, {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                }),
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    json.success == true ? Alert.alert("Sukses", "Data mahasiswa berhasil disimpan") : Alert.alert("Data gagal disimpan");
+                })
+                .catch((err) => console.log(err));
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     function renderHeader() {
@@ -222,6 +246,7 @@ const SignIn = ({ navigation }) => {
                                     borderRadius: SIZES.radius,
                                     backgroundColor: isEnableSignIn() ? COLORS.primary : COLORS.lightOrange2,
                                 }}
+                                onPress={() => login()}
                             ></TextButton>
 
                             {/* Sign Up */}
