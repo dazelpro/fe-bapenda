@@ -36,7 +36,7 @@ const SignIn = ({ navigation }) => {
             })
                 .then((response) => response.json())
                 .then((json) => {
-                    json.success == true ? Alert.alert("Sukses", "Data mahasiswa berhasil disimpan") : Alert.alert("Data gagal disimpan");
+                    json.success == true ? Alert.alert("Sukses", json.message) : Alert.alert("Data gagal disimpan");
                 })
                 .catch((err) => console.log(err));
         } catch (err) {
