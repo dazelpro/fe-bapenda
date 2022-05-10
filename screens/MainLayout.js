@@ -10,6 +10,7 @@ import { Home, Article, Event, Profile, Office } from "../screens";
 
 import { Header } from "../components";
 import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../constants";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const TabButton = ({ label, icon, isFocused, outerContainerStyle, innerContainerStyle, onPress }) => {
     return (
@@ -78,6 +79,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
     const profileTabFlex = useSharedValue(1);
     const profileTabColor = useSharedValue(COLORS.white);
 
+    const [sessionLogin, setSessionLogin] = React.useState(false);
+
     // Reanimated Animated Value
 
     const homeFlexStyle = useAnimatedStyle(() => {
@@ -143,6 +146,19 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
     React.useEffect(() => {
         setSelectedTab(constants.screens.home);
     }, []);
+
+    const getSession = async () => {
+        try {
+            const data = await AsyncStorage.getItem("@storage_Key");
+            if (data !== null) {
+                setSessionLogin(true);
+            } else {
+                setSessionLogin(false);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     React.useEffect(() => {
         if (selectedTab == constants.screens.home) {
@@ -373,7 +389,15 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             isFocused={selectedTab == constants.screens.article}
                             outerContainerStyle={articleFlexStyle}
                             innerContainerStyle={articleColorStyle}
-                            onPress={() => setSelectedTab(constants.screens.article)}
+                            onPress={() => {
+                                getSession();
+                                console.log(sessionLogin);
+                                // if (getSession()) {
+                                //     setSelectedTab(constants.screens.article);
+                                // } else {
+                                //     console.log("Anda Belum Login");
+                                // }
+                            }}
                         ></TabButton>
 
                         <TabButton

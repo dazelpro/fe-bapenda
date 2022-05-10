@@ -39,9 +39,8 @@ const SignIn = ({ navigation }) => {
                 .then((response) => response.json())
                 .then((json) => {
                     if (json.success == true) {
-                        // AsyncStorage.setItem("session_email", email);
-                        // AsyncStorage.setItem("session_name", email);
-                        console.log(jwt_decode(json.token));
+                        const token = JSON.stringify(jwt_decode(json.token));
+                        AsyncStorage.setItem("@storage_Key", token);
                     }
                 })
                 .catch((err) => console.log(err));

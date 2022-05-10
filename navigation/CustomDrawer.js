@@ -8,6 +8,7 @@ import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../constants"
 import Animated from "react-native-reanimated";
 import { connect } from "react-redux";
 import { setSelectedTab } from "../stores/tab/tabActions";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Drawer = createDrawerNavigator();
 
@@ -65,6 +66,14 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
             }
         } catch (error) {
             alert(error.message);
+        }
+    };
+
+    const removeData = async () => {
+        try {
+            await AsyncStorage.removeItem("@storage_Key");
+        } catch (error) {
+            console.log(error);
         }
     };
 
@@ -231,7 +240,14 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
                         marginBottom: SIZES.padding,
                     }}
                 >
-                    <CustomDrawerItem label={constants.screens.logout} icon={icons.logout} onPress={() => navigation.navigate("SignIn")}></CustomDrawerItem>
+                    <CustomDrawerItem
+                        label={constants.screens.logout}
+                        icon={icons.logout}
+                        onPress={() => {
+                            // navigation.navigate("SignIn");
+                            removeData();
+                        }}
+                    ></CustomDrawerItem>
                 </View>
             </View>
         </DrawerContentScrollView>
