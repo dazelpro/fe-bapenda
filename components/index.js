@@ -5,5 +5,6 @@ import IconButtonRed from "./IconButtonRed";
 import TextButton from "./TextButton";
 import FormInput from "./FormInput";
 import TextIconButton from "./TextIconButton";
+import NoticeModal from "./NoticeModal";
 
-export { Header, HorizontalArticle, IconButton, TextButton, IconButtonRed, FormInput, TextIconButton };
+export { Header, HorizontalArticle, IconButton, TextButton, IconButtonRed, FormInput, TextIconButton, NoticeModal };

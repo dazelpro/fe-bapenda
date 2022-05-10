@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, Animated, ScrollView, TouchableWithoutFeedback, Modal } from "react-native";
 
-import { COLORS, FONTS, SIZES, constants, icons } from "../../constants";
-import { IconButton } from "../../components";
+import { COLORS, FONTS, SIZES, constants, icons } from "../constants";
+import { IconButton } from "../components";
 
-const FilterModal = ({ isVisible, onRequestClose }) => {
+const NoticeModal = ({ isVisible, onRequestClose }) => {
     const modalAnimatedValue = React.useRef(new Animated.Value(0)).current;
 
     const [showFilterModal, setShowFilterModal] = React.useState(isVisible);
@@ -27,7 +27,7 @@ const FilterModal = ({ isVisible, onRequestClose }) => {
 
     const modalY = modalAnimatedValue.interpolate({
         inputRange: [0, 1],
-        outputRange: [SIZES.height, SIZES.height - 680],
+        outputRange: [SIZES.height, SIZES.height - 400],
     });
 
     return (
@@ -78,7 +78,7 @@ const FilterModal = ({ isVisible, onRequestClose }) => {
                                 fontSize: 18,
                             }}
                         >
-                            Filter article
+                            Notice Modal
                         </Text>
 
                         <IconButton
@@ -100,4 +100,4 @@ const FilterModal = ({ isVisible, onRequestClose }) => {
     );
 };
 
-export default FilterModal;
+export default NoticeModal;

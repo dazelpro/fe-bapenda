@@ -8,7 +8,7 @@ import { setSelectedTab } from "../stores/tab/tabActions";
 
 import { Home, Article, Event, Profile, Office } from "../screens";
 
-import { Header } from "../components";
+import { Header, NoticeModal } from "../components";
 import { COLORS, FONTS, SIZES, constants, icons, dummyData } from "../constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -80,6 +80,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
     const profileTabColor = useSharedValue(COLORS.white);
 
     const [sessionLogin, setSessionLogin] = React.useState(false);
+
+    const [showNoticeModal, setShowNoticeModal] = React.useState(false);
 
     // Reanimated Animated Value
 
@@ -303,6 +305,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     }
                 ></Header>
 
+                {showNoticeModal && <NoticeModal isVisible={showNoticeModal} onRequestClose={() => setShowNoticeModal(false)} />}
+
                 {/* Content */}
                 <View
                     style={{
@@ -392,11 +396,11 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             onPress={() => {
                                 getSession();
                                 console.log(sessionLogin);
-                                // if (getSession()) {
-                                //     setSelectedTab(constants.screens.article);
-                                // } else {
-                                //     console.log("Anda Belum Login");
-                                // }
+                                if (sessionLogin) {
+                                    setSelectedTab(constants.screens.article);
+                                } else {
+                                    setShowNoticeModal(true);
+                                }
                             }}
                         ></TabButton>
 
