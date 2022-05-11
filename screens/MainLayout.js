@@ -395,7 +395,6 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             innerContainerStyle={articleColorStyle}
                             onPress={() => {
                                 getSession();
-                                console.log(sessionLogin);
                                 if (sessionLogin) {
                                     setSelectedTab(constants.screens.article);
                                 } else {
@@ -410,7 +409,14 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             isFocused={selectedTab == constants.screens.event}
                             outerContainerStyle={eventFlexStyle}
                             innerContainerStyle={eventColorStyle}
-                            onPress={() => setSelectedTab(constants.screens.event)}
+                            onPress={() => {
+                                getSession();
+                                if (sessionLogin) {
+                                    setSelectedTab(constants.screens.event);
+                                } else {
+                                    setShowNoticeModal(true);
+                                }
+                            }}
                         ></TabButton>
 
                         <TabButton
@@ -419,7 +425,14 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             isFocused={selectedTab == constants.screens.office}
                             outerContainerStyle={officeFlexStyle}
                             innerContainerStyle={officeColorStyle}
-                            onPress={() => setSelectedTab(constants.screens.office)}
+                            onPress={() => {
+                                getSession();
+                                if (sessionLogin) {
+                                    setSelectedTab(constants.screens.office);
+                                } else {
+                                    setShowNoticeModal(true);
+                                }
+                            }}
                         ></TabButton>
 
                         <TabButton
@@ -428,7 +441,14 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             isFocused={selectedTab == constants.screens.profile}
                             outerContainerStyle={profileFlexStyle}
                             innerContainerStyle={profileColorStyle}
-                            onPress={() => setSelectedTab(constants.screens.profile)}
+                            onPress={() => {
+                                getSession();
+                                if (sessionLogin) {
+                                    setSelectedTab(constants.screens.profile);
+                                } else {
+                                    setShowNoticeModal(true);
+                                }
+                            }}
                         ></TabButton>
                     </View>
                 </View>
